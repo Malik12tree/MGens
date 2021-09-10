@@ -1,0 +1,370 @@
+.main-sec{
+    position: fixed;
+    top: 100px;
+    left: 15%;
+    height: 100%;
+    width: 70%;
+    background-color: rgb(78, 90, 90);
+    box-shadow: 2px 5px 4px rgba(38, 42, 40, 0.5);
+    border-radius: 10px;
+
+}
+#drawing-canvas{
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin: 10px;
+    top: -55px;
+    cursor: url(../../../assets/Brush.svg) -10 20, move;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(1px);
+}
+
+.pd {
+    font-family: monospace;
+    text-align: center;
+    color: white;
+    position: relative;
+    width: 210px;
+    top: -6.75%;
+    background-color: rgb(62, 73, 68);
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.pd_info{
+    font-family: monospace;
+    text-align: center;
+    color: white;
+    position: relative;
+    left: 220px;
+    top: -10%;
+    width: 650px;
+    background-color: rgb(62, 73, 68);
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.brush-settings{
+    position: absolute;
+    left: 650px;
+    /* 656 */
+    top: 10px;
+    background-color: rgb(52, 59, 55);
+    border-radius: 5px;
+    width: 250px;
+    height: 200px;
+    background-color: rgb(98, 119, 105);
+    box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.2); 
+    border: 2.5px solid rgb(38, 42, 40);
+}
+.br-s{
+    text-align: center;
+    background-color: rgb(156, 248, 186);
+    border-radius: 5px;
+    position: relative;
+    top: -2px;
+    left: -1px;
+    width: 250px;
+    border: 2.5px solid rgb(38, 42, 40);
+    color: rgb(97, 97, 97);
+}
+
+/*www.urmom.com*/
+.brush-settings h5{
+    color: white;
+    padding-left: 10px;
+}
+.brush-settings input[type="range"]{
+    position: relative;
+    top: 2px;
+    left: 10px;
+    cursor: pointer;    
+}
+.brush-settings input[type="number"]{
+    position: relative;
+    left: 12px;
+    width: 37px;
+    border-radius: 5px;
+    border-width: 0px;
+    border: 1px solid black;
+    background-color: hsl(50, 18%, 53%);
+    color: white;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+.brush-settings input[type="number"]:hover{
+    background-color: hsl(50, 26%, 59%);
+    transition: 0.3s ease;
+}
+
+.bar{
+    position: relative;
+    left: 619px;
+    top: -455px;
+}
+.bar h5{
+    position: relative;
+    width: 27.5px;
+    height: 27.5px;
+    background-color: rgb(103, 124, 122);
+    border-radius: 5px;
+    border: 2px solid black;
+    transition: 0.2s ease;
+    cursor: pointer;
+    top: -20px;
+}
+.bar h5:hover{
+    background-color: rgb(119, 163, 159);
+    border-radius: 7px;
+    transition: 0.2s ease;
+    
+}
+.export-settings{
+    position: absolute;
+    left: 650px;
+    top: 215px;
+    border-radius: 5px;
+    width: 250px;
+    height: 200px;
+    background-color: hsl(51, 10%, 43%);
+    box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.2); 
+    border: 2.5px solid rgb(38, 42, 40);
+}
+.ex-s{
+    text-align: center;
+    background-color: hsl(51, 87%, 79%);
+    border-radius: 5px;
+    position: relative;
+    top: -2px;
+    left: -1px;
+    width: 250px;
+    border: 2.5px solid rgb(38, 42, 40);
+    color: rgb(97, 97, 97);
+    
+}
+.export-settings h5{
+    color: white;
+    padding-left: 10px;
+}
+.ptcl-input{
+    position: relative;
+    left: 10px;
+    width: 60%;
+    top: 2px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: hsl(50, 18%, 53%);
+    color: white;
+    font-weight: 400;
+    font-size: 1em;
+}
+.ptcl-input:hover{
+    background-color: hsl(50, 26%, 59%);
+}
+.ptcl-id-input{
+    position: relative;
+    left: 10px;
+    width: 60%;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: hsl(50, 18%, 53%);
+    color: white;
+    font-weight: 400;
+    font-size: 1em;
+}
+.ptcl-id-input:hover{
+    background-color: hsl(50, 26%, 59%);
+}
+.animate{
+    position: relative;
+    top: 3.5px;
+    left: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    outline: none;
+    
+}
+.anim-type{
+    padding: 2.5px;
+    position: relative;
+    color: white;
+    background-color: hsl(50, 18%, 53%);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0.1px solid black;
+}
+.anim-type:hover{
+    background-color: hsl(50, 26%, 59%);
+}
+.animation-settings{
+    display: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 225px;
+    position: relative;
+    left: 10px;
+    padding: 5px;
+    background-color: hsl(50, 26%, 50%);
+}
+.export{
+    padding: 7px;
+    color: white;
+    font-weight: 600;
+    background-color: hsl(50, 18%, 53%);
+    border: 2px solid rgb(90, 90, 90);
+    border-radius: 5px;
+    position: relative;
+    left: 95px;
+    top: 10px;
+    cursor: pointer;
+    width: 60px;
+}
+.export:hover{
+    background-color: hsl(50, 26%, 59%);
+}
+.ppf-value{
+    position: relative;
+    left: 15px;
+    width: 40px;
+    border-radius: 5px;
+    border-width: 0px;
+    top: -1px;
+    border: 1px solid black;
+    background-color: hsl(50, 18%, 53%);
+    color: white;
+    font-weight: 600;
+}
+.ppf-value:hover{
+    background-color: hsl(50, 26%, 59%);
+}
+.ppf-range{
+    position: relative;
+    left: 10px;
+    cursor: pointer;
+    
+}
+/*
+hover: hsl(50, 26%, 59%)
+inputs: hsl(50, 18%, 53%)
+sub-sections: hsl(50, 26%, 50%)
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+
+
+
+
+ /* */
+ /* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+    top: 1.5px;
+    left: 5px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(50, 18%, 53%);
+    border: 1px solid rgb(41, 41, 41);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 3px;
+    bottom: 1.25px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  /* */
+
+
+  .global{
+    position: relative;
+    top: 3.5px;
+    left: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    outline: none;
+    
+}
+.steve{
+    position: relative;
+    height: 300px;
+    top: -5px;
+}
+.arc_br_settings{
+    display: none;
+}
+#reset{
+    transform: rotateZ(-45deg);
+    position: absolute;
+    top: 165px;
+    left: 87.5%;
+    border-radius: 50%;
+    background: #fff4;
+    transition: 0.3s ease;
+    border: 2px solid #000a;
+    cursor: pointer;
+    height: 22.5px;
+}
+#reset:hover{
+    transition: 0.3s ease;
+    border: 2px dashed #055a;
+}

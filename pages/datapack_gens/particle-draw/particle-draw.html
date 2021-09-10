@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- https://stuk.github.io/jszip/ -->
+    <title>Particle Draw</title>
+    <link rel="shortcut icon" href="../../../assets/MDatapack.svg">
+
+    <link rel="stylesheet" href="particle-draw.css">
+    <link rel="stylesheet" href="../../../main.css">
+
+    
+</head>
+<body>
+    <input id="upload_svg_r" type="file" hidden="hidden">
+   <dev class="main-sec" id="main-s">
+       
+        <h1 class="pd"> Particle Draw <h3 class="pd_info"> Draw Particles On The Canvas Then Export Ur Work as Minecraft Particles! </h3></h1>
+    
+<canvas id="drawing-canvas"></canvas>
+
+<dev id="bar" class="bar">
+    <h5><img id="brush" onclick="brush_select();" src="../../../assets/Brush.svg" title="B, Drawing Brush"></h5>
+    <h5><img id="multi-br" onclick="multi_br_select();" src="../../../assets/MultiBrush.svg" title="M, Multi-Brush"></h5>
+    <h5><img id="arc-br" onclick="arc_br_select();" src="../../../assets/CircleBrush.svg" title="C, Circle Brush"></h5>
+    <h5><img id="eraser" onclick="eraser_select();" src="../../../assets/Erase.svg" title="E, Eraser"></h5>
+    <h5><img id="clear" onclick="clear_canvas();" src="../../../assets/Clear.svg" title="Clear Canvas"></h5>
+</dev>
+
+<dev class="brush-settings">
+    <h4 class="br-s">Brush Settings</h4>
+    <h5>Spacing: <input id="s-range" type="range" value="0" min="0" max="50"><input id="s-value" type="number" value="0" min="0" max="50" ></h5>
+    <dev id="arc_br_settings" class="arc_br_settings">
+        <h5>Circles:<input id="c-range" type="range" value="22" min="3" max="999"><input id="c-value" type="number" value="22" min="3" max="999"></h5>
+        <h5>Distance:<input id="d-range" type="range" value="140" min="40" max="200"><input id="d-value" type="number" value="140" min="40" max="200"></h5>
+        <h5>Angle:<input id="a-range" type="range" value="360" min="0" max="360"><input id="a-value" type="number" value="360" min="0" max="360"></h5>
+        <h5>Rotation:<input id="r-range" type="range" value="0" min="0" max="360"><input id="r-value" type="number" value="0" min="0" max="360"></h5>
+    </dev>
+    <dev id="mBr-s">
+        <h5>Circles:<input id="cm-range" type="range" value="3" min="3" max="50"><input id="cm-value" type="number" value="3" min="3" max="50"></h5>
+        <h5>Max Radius:<input id="rm-range" type="range" value="40" min="40" max="100" style="width: 110px;"><input id="rm-value" type="number" value="40" min="40" max="100"></h5>
+    </dev>
+    <img src="../../../assets/reset.svg" title="Reset values" id="reset" onclick="reset()">
+</dev>
+
+<dev class="export-settings" id="export-settings">
+    <h4 class="ex-s">Export Settings</h4>
+    <h5>Particle:</h5> <input type="text" spellcheck="false" class="ptcl-id-input" id="ptcl-id-input" value="minecraft:flame"><input type="text" spellcheck="false" class="ptcl-input" id="ptcl-input" value="0 0 0 0 1 force @a">
+
+    <h5>Animate: <input type="checkbox" id="animate" class="animate"></h5>
+
+    <dev id="animation-settings" class="animation-settings">
+        <h5>Animation Type:<select class="anim-type" id="anim-type">
+            <option value="0-1">First To Last</option>
+            <option value="1-0">Last To Firse</option>
+            <!-- Comming Soon btw... -->
+            <!-- <option value="r-l">Right To Left</option>
+            <option value="l-r">Left To Right</option>
+            <option value="t-b">Top To Bottom</option>
+            <option value="b-t">Bottom To Top</option> -->
+        </select></h5>
+        <h5>Particles Per Frame:<input id="ppf-range" class="ppf-range" type="range" value="1" min="1" max="50"><input id="ppf-value" class="ppf-value" type="number" value="10" min="1" max="50" ></h5>
+        <h5>Global?<input type="checkbox" class="global" id="global"></h5>
+
+        <h5 id="preview">Preview:<label class="switch">
+            <input type="checkbox" id="switch-preview">
+            <span class="slider round"></span>
+          </label></h5>
+          
+    </dev>
+
+    <button onclick="download();" id="export" class="export">Export</button>
+
+</dev>
+</dev>
+
+    <dev class="menus">
+        <ul>
+                
+            <li><a href="../../../index.html">Home</a></li>
+            <li><a>Generators<img class= "dpgem" src="../../../assets/expand_more.svg"></a>
+            <div class="dp-gens">
+                <ul>
+                    <li><a href="particle-draw.html">Particle Draw</a></li>
+                    <li><a href="../text-build/text-build.html">Text-TypeWriter-Build</a></li>
+                </ul>
+            </div>
+            </li>
+
+            
+            <li><a onclick="discord();">Discord</a></li>
+
+            
+        </ul>
+        
+    </dev>
+    <div id="drawing"></div>
+
+
+        
+    <script src= "particle-draw.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
+
+
+</body>
+</html>

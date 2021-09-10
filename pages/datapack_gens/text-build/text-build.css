@@ -1,0 +1,140 @@
+/* @font-face { font-family: minecraft; src: url('../../../assets/Minecraft.ttf'); }  */
+
+.main-sec{
+    position: fixed;
+    top: 100px;
+    left: 15%;
+    height: 100%;
+    background-color: rgb(78, 90, 90);
+    width: 70%;
+    box-shadow: 2px 5px 4px rgba(38, 42, 40, 0.5);
+    border-radius: 10px;
+}
+.main-sec h5{
+    text-align: center;
+    color: white;
+}
+.main-sec input[type="range"]{
+    position: relative;
+    top: 2px;
+    left: 10px;
+    cursor: pointer;
+    
+    
+}
+.main-sec input[type="number"]{
+    position: relative;
+    left: 12px;
+    width: 40px;
+    border-radius: 5px;
+    border-width: 0px;
+    border: 1px solid black;
+    background-color: hsl(50, 18%, 53%);
+    color: white;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+.main-sec input[type="number"]:hover{
+    background-color: hsl(50, 7%, 51%);
+    transition: 0.3s ease;
+}
+.main-sec input[type="checkbox"]{
+    position: relative;
+    top: 2.5px;
+    left: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    outline: none;
+}
+.main-sec button{
+    padding: 7px;
+    color: white;
+    font-weight: 600;
+    background-color: hsl(50, 18%, 53%);
+    border: 2px solid rgb(90, 90, 90);
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    width: 60px;
+    transition: 0.3s ease;
+}
+.main-sec button:hover{
+    background-color: hsl(50, 26%, 59%);
+    color: rgb(228, 228, 228);
+    transition: 0.3s ease;
+}
+.main-sec input[type="text"]{
+    position: relative;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: hsl(50, 18%, 53%);
+    color: white;
+    font-weight: 800;
+    font-family: cursive;
+    width: 70%;
+    margin-top: 5px;
+    overflow-y: auto;
+    padding: 10px;
+}
+.sub-sec{
+    position: relative;
+    left: 25%;
+    padding: 10px;
+    /* height: 200px; */
+    width: 50%;
+    background-color: hsl(50, 26%, 50%);
+    border-radius: 10px;
+    border: 2px solid hsl(0, 0%, 20%) ;
+    box-shadow: 1px 2px 3px hsla(0, 0%, 0%, 0.15);
+}
+#typewriter-sec{
+    /* display: none; */
+    background-color: rgb(179, 172, 78);
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid rgba(36, 36, 36, 0.7);
+    width: 70%;
+    position: relative;
+    left: 15%;
+}
+#block-id{
+    width: 35%;
+    position: relative;
+    
+}
+.export{
+    position: relative;
+    top: 2.5px;
+}
+.tb{
+    font-family: monospace;
+    text-align: center;
+    color: white;
+    position: relative;
+    max-width: 350px;
+    top: -40px;
+    background-color: rgb(62, 73, 68);
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.tb_info{
+    font-family: monospace;
+    text-align: center;
+    color: white;
+    position: relative;
+    left: 360px;
+    top: -60px;
+    max-width: 500px;
+    background-color: rgb(62, 73, 68);
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
