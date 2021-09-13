@@ -11,13 +11,13 @@
     
 </head>
 <body>
-    <input id="upload_svg_r" type="file" hidden="hidden">
+    <input type="file" id="importP" hidden>
+    <!-- <h5 onclick="exportP_f()">test export</h5> -->
+    <!-- <h5 onclick="importP_f()">test import</h5> -->
    <dev class="main-sec" id="main-s">
        
         <h1 class="pd"> Particle Draw <h3 class="pd_info"> Draw Particles On The Canvas Then Export Ur Work as Minecraft Particles! </h3></h1>
-    
 <canvas id="drawing-canvas"></canvas>
-
 <dev id="bar" class="bar">
     <h5><img id="brush" onclick="brush_select();" src="../../../assets/Brush.svg" title="B, Drawing Brush"></h5>
     <h5><img id="multi-br" onclick="multi_br_select();" src="../../../assets/MultiBrush.svg" title="M, Multi-Brush"></h5>
@@ -25,8 +25,13 @@
     <h5><img id="eraser" onclick="eraser_select();" src="../../../assets/Erase.svg" title="E, Eraser"></h5>
     <h5><img id="clear" onclick="clear_canvas();" src="../../../assets/Clear.svg" title="Clear Canvas"></h5>
 </dev>
+    <dev class="action-bar">
+        <h5><img onclick="exportP_f()" src="../../../assets/save-particles.svg" title="save particles to save your progress"></h5>
+        <h5><img onclick="importP_f()" src="../../../assets/import-particles.svg" title="import particles to restore your progress"></h5>
+    </dev>
 
 <dev class="brush-settings">
+    
     <h4 class="br-s">Brush Settings</h4>
     <h5>Spacing: <input id="s-range" type="range" value="0" min="0" max="50"><input id="s-value" type="number" value="0" min="0" max="50" ></h5>
     <dev id="arc_br_settings" class="arc_br_settings">
@@ -100,7 +105,7 @@
     <script src= "particle-draw.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
     <script src="../../../assets/FileSaver.min.js"></script>
-
+      
 
 </body>
 </html>

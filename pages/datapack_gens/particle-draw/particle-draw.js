@@ -628,3 +628,33 @@ function reset() {
   rm_range.value = 40;
   rm_value.value = 40;
 }
+
+let export_file, exportJson, importJson;
+
+function exportP_f() {
+  exportJson = JSON.stringify(particles, null, 2);
+  // console.log(exportJson );
+
+  export_file = new Blob([exportJson], {type: "text/plain;charset=utf-8"});
+  saveAs(export_file, "particles"+ ".json");
+}
+var importP_btn = document.getElementById('importP');
+
+function importP_f() {
+  importP_btn.value = "";
+  importP_btn.click();
+}
+
+importP_btn.addEventListener('change', function(){
+  if (importP_btn.value) {
+    const reader = new FileReader();
+    reader.onload = function() {
+      // console.log(reader.result)
+      importJson = JSON.parse(reader.result);
+      for (let i = 0; i < importJson.length; i++) {
+        particles.push(new Particle(importJson[i].x, importJson[i].y, importJson[i].brush_radius, importJson[i].color))  
+      }
+    }
+    reader.readAsText(importP_btn.files[0])
+  }
+})

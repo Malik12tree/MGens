@@ -368,3 +368,26 @@ sub-sections: hsl(50, 26%, 50%)
     transition: 0.3s ease;
     border: 2px dashed #055a;
 }
+
+.action-bar{
+    position: relative;
+    left: 619px;
+    top: -300px;
+}
+.action-bar h5{
+    position: relative;
+    width: 27.5px;
+    height: 27.5px;
+    background-color: hsl(0, 9%, 50%);
+    border-radius: 5px;
+    border: 2px solid black;
+    transition: 0.2s ease;
+    cursor: pointer;
+    top: -20px;
+}
+.action-bar h5:hover{
+    background-color: hsl(0, 19%, 60%);
+    border-radius: 7px;
+    transition: 0.2s ease;
+    
+}
