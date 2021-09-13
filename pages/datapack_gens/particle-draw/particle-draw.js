@@ -138,7 +138,10 @@ if (event.key == "m"|| event.key == "M") {
 if (event.key == "c"|| event.key == "C") {
   arc_br_select();
 }
-
+if (event.key == "p"|| event.key == "P") {
+  pivot_tool_select()
+}
+  
 })
 canvas.addEventListener('mousedown', e => {
 x = e.offsetX;
