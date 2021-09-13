@@ -141,7 +141,7 @@ if (event.key == "c"|| event.key == "C") {
 if (event.key == "p"|| event.key == "P") {
   pivot_tool_select()
 }
-  
+
 })
 canvas.addEventListener('mousedown', e => {
 x = e.offsetX;
@@ -444,7 +444,7 @@ zip.generateAsync({type:"blob"}).then(function(content) {
 }
 function raw_particles(zip) {
 for (let k = 0; k < particles.length; k++) {
-  commands+= `particle ${particle_id.value} ^ ^${(pivot[1] - particles[k].y) / 100} ^${(pivot[0] - particles[k].x) / 100} ${particle_end.value}\n`
+  commands+= `particle ${particle_id.value} ^ ^${(pivot[1] - particles[k].y) / 100} ^${(particles[k].x - pivot[0]) / 100} ${particle_end.value}\n`
 }
  var file = zip.file("Particles.mcfunction", "#File Generated With Malik12tree's Particle Drawer.\n" + commands)
  commands = ""
@@ -494,7 +494,7 @@ for (let t = 0; t < ppf.toFixed(); t++) {
   for (let i = 0; i < ppf_range.value; i++) {
     fix_+= 1
     console.log(fix_)
-    commands += `particle ${particle_id.value} ^ ^${(pivot[1] - particles[fix_].y) / 100} ^${(pivot[0] - particles[fix_].x) / 100} ${particle_end.value}\n`
+    commands += `particle ${particle_id.value} ^ ^${(pivot[1] - particles[fix_].y) / 100} ^${(particles[fix_].x - pivot[0]) / 100} ${particle_end.value}\n`
   }
   var file = framesf.file("frame" + t + ".mcfunction", commands)
 }
