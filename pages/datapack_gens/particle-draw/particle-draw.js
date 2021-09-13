@@ -462,11 +462,11 @@ for (let d = 0; d < ppf; d++) {
     frame_id = particles.length - 1 - d
   }
   
-  anim_commands += `execute if score ${player} m_particledraw matches ${d * ppf_range.value} run function p:frames/frame${frame_id}\n`
+  anim_commands += `execute if score ${player} m_particledraw matches ${d} run function p:frames/frame${frame_id}\n`
 }
 //Math.trunc((((ppf - 1) * d) + d) / particles.length)
 var anim = fn.file("anim.mcfunction", anim_commands)
-var start = fn.file("start.mcfunction", "#File Generated With Malik12tree's Particle Drawer.\n" + `scoreboard objectives add m_particledraw dummy\nexecute unless score ${player} m_particledraw matches ${particles.length}.. run function p:anim\nscoreboard players add ${player} m_particledraw 1\nexecute if score ${player} m_particledraw matches ${particles.length}.. run scoreboard players set ${player} m_particledraw 0`)
+var start = fn.file("start.mcfunction", "#File Generated With Malik12tree's Particle Drawer.\n" + `scoreboard objectives add m_particledraw dummy\nexecute unless score ${player} m_particledraw matches ${ppf}.. run function p:anim\nscoreboard players add ${player} m_particledraw 1\nexecute if score ${player} m_particledraw matches ${ppf}.. run scoreboard players set ${player} m_particledraw 0`)
 
 
 
@@ -583,43 +583,6 @@ for (let i = 0; i < tot; i++) {
   d += deg;
 }
 }
-// function Dialog(width, height, title) {
-//   this.width = width;
-//   this.height = height;
-//   this.title = title;
-
-
-//   var dial = document.createElement('Dev');
-//   var titl = document.createElement('h3');
-//   var title_text = document.createTextNode(this.title);
-//   titl.appendChild(title_text);
-//   dial.appendChild(titl)
-//   //style
-//   titl.style.color = "#fff"
-//   titl.style.fontWeight = 620
-//   titl.style.padding = "10px"
-//   titl.style.backgroundColor = "#255"
-//   titl.style.borderRadius = "10px"
-
-//   dial.style.width = this.width + "px"
-//   dial.style.height = this.height + "px"
-//   dial.style.backgroundColor = "#455"
-//   dial.style.position = "fixed"
-//   dial.style.left = (window.innerWidth / 2) - (this.width / 2) + "px"
-//   dial.style.top = (window.innerHeight / 2) - (this.height / 2) + "px"
-//   dial.draggable = true
-//   dial.style.borderRadius = "10px"
-//   //
-
-//   document.getElementById('main-s').appendChild(dial);
-
-// }
-// new Dialog(
-//   width = 600,
-//   height = 400,
-//   title = "Example Title",
-//   );
-
 function reset() {
 s_range.value = 0;
 s_value.value = 0;
