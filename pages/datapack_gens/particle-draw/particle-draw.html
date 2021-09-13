@@ -27,13 +27,14 @@
     <h5><img id="clear" onclick="clear_canvas();" src="../../../assets/Clear.svg" title="Clear Canvas"></h5>
 </dev>
     <dev class="action-bar">
+        <h5><img onclick="grid_toggle()" id="gridBtn" src="../../../assets/grid.svg" title="show grid"></h5>
         <h5><img onclick="exportP_f()" src="../../../assets/save-particles.svg" title="save particles to save your progress"></h5>
         <h5><img onclick="importP_f()" src="../../../assets/import-particles.svg" title="import particles to restore your progress"></h5>
     </dev>
 <dev class="pinfo">
     <h5>Particles Count: <label id="pCount">0</label>
-         | Pivot: <label id="pivotXlabel">5</label>, <label id="pivotYlabel">200</label><img class="pivot_reset" src="../../../assets/reset.svg" onclick="pivot[0] = 0; pivot[1] = canvas.height/2">
-        
+         | Pivot: <label id="pivotXlabel">5</label>, <label id="pivotYlabel">200</label><img class="infoBar_reset" src="../../../assets/reset.svg" onclick="infobar_reset();">
+     <label id="gr_s">| Grid Resolution: <input type="number" id="gridRes" value="20" min="10" max="200"></label> 
         </h5>
 </dev>
 
@@ -56,7 +57,9 @@
 
 <dev class="export-settings" id="export-settings">
     <h4 class="ex-s">Export Settings</h4>
-    <h5>Particle:</h5> <input type="text" spellcheck="false" class="ptcl-id-input" id="ptcl-id-input" value="minecraft:flame"><input type="text" spellcheck="false" class="ptcl-input" id="ptcl-input" value="0 0 0 0 1 force @a">
+    <h5>Particle:</h5> 
+    <input type="text" spellcheck="false" class="ptcl-id-input" id="ptcl-id-input" value="minecraft:flame">
+    <input type="text" spellcheck="false" class="ptcl-input" id="ptcl-input" value="0 0 0 0 1 force @a">
 
     <h5>Animate: <input type="checkbox" id="animate" class="animate"></h5>
 
