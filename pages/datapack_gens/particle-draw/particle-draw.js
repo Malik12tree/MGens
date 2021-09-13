@@ -535,7 +535,7 @@ function animate() {
 requestAnimationFrame(animate);
 context.clearRect(0 ,0 , canvas.width, canvas.height);
   pCount.innerHTML = particles.length;
-  pivotYlabel.innerHTML = (canvas.height / 2) - pivot[1];
+  pivotYlabel.innerHTML = canvas.height - pivot[1];
   pivotXlabel.innerHTML = pivot[0];
 
 
