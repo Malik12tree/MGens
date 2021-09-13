@@ -13,7 +13,7 @@
 <body>
     <input type="file" id="importP" hidden>
     <!-- <h5 onclick="exportP_f()">test export</h5> -->
-    <!-- <h5 onclick="importP_f()">test import</h5> test-->
+    <!-- <h5 onclick="importP_f()">test import</h5> -->
    <dev class="main-sec" id="main-s">
        
         <h1 class="pd"> Particle Draw <h3 class="pd_info"> Draw Particles On The Canvas Then Export Ur Work as Minecraft Particles! </h3></h1>
@@ -23,12 +23,19 @@
     <h5><img id="multi-br" onclick="multi_br_select();" src="../../../assets/MultiBrush.svg" title="M, Multi-Brush"></h5>
     <h5><img id="arc-br" onclick="arc_br_select();" src="../../../assets/CircleBrush.svg" title="C, Circle Brush"></h5>
     <h5><img id="eraser" onclick="eraser_select();" src="../../../assets/Erase.svg" title="E, Eraser"></h5>
+    <h5><img id="pivot_tool" onclick="pivot_tool_select();" src="../../../assets/pivot.svg" title="P, Pivot Tool"></h5>
     <h5><img id="clear" onclick="clear_canvas();" src="../../../assets/Clear.svg" title="Clear Canvas"></h5>
 </dev>
     <dev class="action-bar">
         <h5><img onclick="exportP_f()" src="../../../assets/save-particles.svg" title="save particles to save your progress"></h5>
         <h5><img onclick="importP_f()" src="../../../assets/import-particles.svg" title="import particles to restore your progress"></h5>
     </dev>
+<dev class="pinfo">
+    <h5>Particles Count: <label id="pCount">0</label>
+         | Pivot: <label id="pivotXlabel">5</label>, <label id="pivotYlabel">200</label><img class="pivot_reset" src="../../../assets/reset.svg" onclick="pivot[0] = 10; pivot[1] = canvas.height/2">
+        
+        </h5>
+</dev>
 
 <dev class="brush-settings">
     

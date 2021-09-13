@@ -106,11 +106,14 @@ let isDrawing = false;
 let isErasing = false;
 let isMultiDrawing = false;
 let isCircleDrawing = false;
+let isMovingPivot = false;
 
 let Brush_selected = true;
 let Eraser_selected = false;
 let Multi_br_selected = false;
 let Circle_br_selected = false;
+let pivot_tool_selected = false;
+
 let x = 0;
 let y = 0;
 //Brush Settings
@@ -143,6 +146,8 @@ y = e.offsetY;
 if (Brush_selected === true) {
   var particle_click = new Particle(x, y, brush_radius, "#0f3a80");
   isDrawing = true;
+  isMovingPivot = false;
+  isMultiDrawing = false;
   isErasing = false;
   particle_click.draw();
   particles.push(particle_click);
@@ -160,6 +165,8 @@ if (Eraser_selected === true) {
   }
   isErasing = true
   isDrawing = false
+  isMovingPivot = false;
+  isMultiDrawing = false;
 } else{
   isErasing = false;
 }
@@ -177,6 +184,7 @@ if (Multi_br_selected === true) {
   isDrawing = false;
   isErasing = false;
   isMultiDrawing = true;
+  isMovingPivot = false;
 
 } else{
   isMultiDrawing = false;
@@ -187,7 +195,16 @@ if (Circle_br_selected === true) {
 } else{
   Circle_br_selected = false;
 }
-
+if (pivot_tool_selected === true) {
+  pivot[0] = x
+  pivot[1] = y
+  isDrawing = false;
+  isErasing = false;
+  isMultiDrawing = false;
+  isMovingPivot = true;
+} else{
+  isMovingPivot = false;
+}
 
 });
 canvas.addEventListener('mousemove', e => {
@@ -230,6 +247,12 @@ if (isErasing == true) {
   isErasing = true
   isDrawing = false
 }
+if (isMovingPivot == true) {
+  x = e.offsetX;
+  y = e.offsetY;
+  pivot[0] = x
+  pivot[1] = y
+}
 
 });
 
@@ -239,7 +262,7 @@ window.addEventListener('mouseup', e => {
   isDrawing = false;
   isErasing = false;
   isMultiDrawing = false;
-
+  isMovingPivot = false;
 });
 function getDistance(x1, y1, x2, y2) {
 let Xdistance = x2 - x1
@@ -274,86 +297,77 @@ var eraser = document.getElementById('eraser');
 var multi_br = document.getElementById('multi-br');
 var circle_br = document.getElementById('arc-br');
 var clear = document.getElementById('clear');
+var pivot_tool = document.getElementById('pivot_tool');
 
 brush.style.backgroundColor = "rgb(119, 163, 159)"
 brush.style.borderRadius = "7px"
 
 function brush_select() {
-Brush_selected = true
-Eraser_selected = false
-Multi_br_selected = false;
-Circle_br_selected = false;
+  deselect_all()
+Brush_selected = true;
 canvas.style.cursor = "url(../../../assets/Brush.svg) -10 20, move "
-multi_br.style.backgroundColor = null;
-multi_br.style.borderRadius = null;
+
 brush.style.backgroundColor = selected_BGcolor
 brush.style.borderRadius = selected_border_radius
-eraser.style.backgroundColor = null;
-eraser.style.borderRadius = null;
-clear.style.backgroundColor = null;
-clear.style.borderRadius = null;
-circle_br.style.backgroundColor = null
-circle_br.style.borderRadius = null;
+
 }
 function multi_br_select() {
-Brush_selected = false;
-Eraser_selected = false;
+  deselect_all()
 Multi_br_selected = true;
-Circle_br_selected = false;
 canvas.style.cursor = "url(../../../assets/MultiBrush.svg) -10 20, move "
+
 multi_br.style.backgroundColor = selected_BGcolor;
 multi_br.style.borderRadius = selected_border_radius;
-brush.style.backgroundColor = null;
-brush.style.borderRadius = null;
-eraser.style.backgroundColor = null;
-eraser.style.borderRadius = null;
-clear.style.backgroundColor = null;
-clear.style.borderRadius = null;
-circle_br.style.backgroundColor = null
-circle_br.style.borderRadius = null;
 }
 function eraser_select() {
-Brush_selected = false
+  deselect_all()
 Eraser_selected = true
-Multi_br_selected = false;
-Circle_br_selected = false;
 canvas.style.cursor = "url(../../../assets/Erase.svg) -10 20, move"
-multi_br.style.backgroundColor = null;
-multi_br.style.borderRadius = null;
+
+
 eraser.style.backgroundColor = selected_BGcolor
 eraser.style.borderRadius = selected_border_radius
-brush.style.backgroundColor = null;
-brush.style.borderRadius = null;
-clear.style.backgroundColor = null;
-clear.style.borderRadius = null;
-circle_br.style.backgroundColor = null
-circle_br.style.borderRadius = null;
 }
 function arc_br_select() {
-Brush_selected = false
-Eraser_selected = false
-Multi_br_selected = false;
+deselect_all()
 Circle_br_selected = true;
 canvas.style.cursor = "url(../../../assets/CircleBrush.svg) 12.5 12.5, move"
+
 circle_br.style.backgroundColor = selected_BGcolor
 circle_br.style.borderRadius = selected_border_radius
-multi_br.style.backgroundColor = null;
-multi_br.style.borderRadius = null;
-eraser.style.backgroundColor = null;
-eraser.style.borderRadius = null
-brush.style.backgroundColor = null;
-brush.style.borderRadius = null;
-clear.style.backgroundColor = null;
-clear.style.borderRadius = null;
 }
-let cleared = false;
 function clear_canvas() {
-cleared = true;
 context.clearRect(0, 0, canvas.width, canvas.height);
 particles.splice(0, particles.length + 1);
 }
+function pivot_tool_select() {
+  deselect_all();
+  pivot_tool_selected = true;
+  canvas.style.cursor = "url(../../../assets/pivot.svg) 12.5 12.5, move"
+  pivot_tool.style.backgroundColor = selected_BGcolor
+  pivot_tool.style.borderRadius = selected_border_radius
+  
+}
 
-
+function deselect_all(){
+  pivot_tool_selected = false;
+  Brush_selected = false;
+  Eraser_selected = false;
+  Multi_br_selected = false;
+  Circle_br_selected = false;
+  pivot_tool.style.backgroundColor = null;
+  pivot_tool.style.borderRadius = null;
+  circle_br.style.backgroundColor = null
+  circle_br.style.borderRadius = null
+  multi_br.style.backgroundColor = null;
+  multi_br.style.borderRadius = null;
+  eraser.style.backgroundColor = null;
+  eraser.style.borderRadius = null
+  brush.style.backgroundColor = null;
+  brush.style.borderRadius = null;
+  clear.style.backgroundColor = null;
+  clear.style.borderRadius = null;
+}
 
 
 function log() {
@@ -427,7 +441,7 @@ zip.generateAsync({type:"blob"}).then(function(content) {
 }
 function raw_particles(zip) {
 for (let k = 0; k < particles.length; k++) {
-  commands+= `particle ${particle_id.value} ^ ^${(canvas.height / 2 - particles[k].y) / 10} ^${particles[k].x/10} ${particle_end.value}\n`
+  commands+= `particle ${particle_id.value} ^ ^${(pivot[1] - particles[k].y) / 100} ^${(pivot[0] - particles[k].x) / 100} ${particle_end.value}\n`
 }
  var file = zip.file("Particles.mcfunction", "#File Generated With Malik12tree's Particle Drawer.\n" + commands)
  commands = ""
@@ -477,7 +491,7 @@ for (let t = 0; t < ppf.toFixed(); t++) {
   for (let i = 0; i < ppf_range.value; i++) {
     fix_+= 1
     console.log(fix_)
-    commands += `particle ${particle_id.value} ^ ^${(canvas.height / 2 - particles[fix_].y) / 10} ^${particles[fix_].x/10} ${particle_end.value}\n`
+    commands += `particle ${particle_id.value} ^ ^${(pivot[1] - particles[fix_].y) / 100} ^${(pivot[0] - particles[fix_].x) / 100} ${particle_end.value}\n`
   }
   var file = framesf.file("frame" + t + ".mcfunction", commands)
 }
@@ -509,22 +523,34 @@ if (preview_switch.checked === true) {
   previewed = false
 }
 })
-
 let pivot = [10, canvas.height/2]
+var pivotXlabel = document.getElementById('pivotXlabel');
+var pivotYlabel = document.getElementById('pivotYlabel');
+var pCount = document.getElementById('pCount');
+
 function animate() {
 requestAnimationFrame(animate);
-  context.clearRect(0 ,0 , canvas.width, canvas.height)
-  context.strokeStyle = "#000";
+context.clearRect(0 ,0 , canvas.width, canvas.height);
+  pCount.innerHTML = particles.length;
+  pivotYlabel.innerHTML = (canvas.height / 2) - pivot[1];
+  pivotXlabel.innerHTML = pivot[0];
+
+
   context.beginPath();
   context.moveTo(pivot[0], 0);
   context.lineTo(pivot[0], canvas.height);
+  context.strokeStyle = "rgb(100, 100, 255)";
+  context.stroke();
+
   context.moveTo(0, pivot[1]);
   context.lineTo(canvas.width, pivot[1]);
+  context.strokeStyle = "rgb(255, 0, 0)";
   context.stroke();
+
   context.fillStyle = "#022";
   context.font = "15px sans-serief" ;
-  context.fillText("Y+", pivot[0] + 5, (canvas.height/2) - 5);
-  context.fillText("Y-", pivot[0] + 5, (canvas.height/2) + 15);
+  context.fillText("Y+", pivot[0] + 5, pivot[1] - 5);
+  context.fillText("Y-", pivot[0] + 5, pivot[1] + 15);
   // particles.push(new Particle(5, canvas.height/2, brush_radius))
 
 particles.forEach((partile, index) => {
@@ -558,7 +584,9 @@ if (Multi_br_selected === true) {
 } else{
   document.getElementById('mBr-s').style.display = "none";
 }
-
+if (pivot_tool_selected === true) {
+  new Particle(pivot[0], pivot[1], 5, '#cc0505').draw();
+}
 
 }
 animate();

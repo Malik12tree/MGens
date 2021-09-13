@@ -372,7 +372,7 @@ sub-sections: hsl(50, 26%, 50%)
 .action-bar{
     position: relative;
     left: 619px;
-    top: -300px;
+    top: -415px;
 }
 .action-bar h5{
     position: relative;
@@ -390,4 +390,25 @@ sub-sections: hsl(50, 26%, 50%)
     border-radius: 7px;
     transition: 0.2s ease;
     
+}
+.pinfo{
+    position: relative;
+    left: 10px;
+    top: -285px;
+    color: rgb(204, 255, 231);
+}
+.pinfo h5{
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: rgb(63, 117, 117);
+    border: .17em solid black;
+    width: 600px;
+    padding: 5px;
+}
+.pivot_reset{
+    position: absolute;
+    height: 20px;
+    margin-left: 2px;
+    cursor: pointer;
+    transform: rotateZ(-45deg);
 }
