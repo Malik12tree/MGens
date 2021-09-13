@@ -349,7 +349,7 @@ function pivot_tool_select() {
   canvas.style.cursor = "url(../../../assets/pivot.svg) 12.5 12.5, move"
   pivot_tool.style.backgroundColor = selected_BGcolor
   pivot_tool.style.borderRadius = selected_border_radius
-  
+
 }
 
 function deselect_all(){
@@ -504,8 +504,6 @@ anim_commands = ""
 // 
 // 
 
-
-
 var circle_settings = document.getElementById('arc_br_settings')
 var preview = document.getElementById('preview');
 var preview_switch = document.getElementById('switch-preview');
@@ -526,34 +524,78 @@ if (preview_switch.checked === true) {
   previewed = false
 }
 })
-let pivot = [10, canvas.height/2]
+let grid_toggle_ = 0;
+function grid_toggle() {
+ grid_toggle_++
+ if (grid_toggle_ > 1) {
+   grid_toggle_ = 0
+   
+ } 
+}
+let pivot = [0, canvas.height/2]
+let gridRes;
+let gr_s = document.getElementById('gr_s');
+gr_s.style.position = "relative"
 var pivotXlabel = document.getElementById('pivotXlabel');
 var pivotYlabel = document.getElementById('pivotYlabel');
 var pCount = document.getElementById('pCount');
+var gridBtn = document.getElementById('gridBtn');
 
 function animate() {
 requestAnimationFrame(animate);
+gridRes = document.getElementById('gridRes').value * 1;
 context.clearRect(0 ,0 , canvas.width, canvas.height);
+
+context.beginPath();
+context.moveTo(pivot[0], 0);
+context.lineTo(pivot[0], canvas.height);
+context.strokeStyle = "rgb(100, 100, 255)";
+context.stroke();
+
+context.moveTo(0, pivot[1]);
+context.lineTo(canvas.width, pivot[1]);
+context.strokeStyle = "rgb(255, 0, 0)";
+context.stroke();
+
+context.fillStyle = "#022";
+context.font = "15px sans-serief" ;
+context.fillText("Y+ ⇧", pivot[0] + 5, pivot[1] - 5);
+context.fillText("Y - ⇩", pivot[0] + 5, pivot[1] + 15);
+
+context.fillText("⇨ X+", pivot[0] - 40, pivot[1] - 5);
+context.fillText("⇦ X -", pivot[0] - 40, pivot[1] + 15);
+
+if (grid_toggle_ == 1) {
+  gr_s.style.top = null;
+  gridBtn.style.backgroundColor = 'hsl(0, 19%, 60%)'
+  gridBtn.style.borderRadius = selected_border_radius 
+    for (let c = 0; c < canvas.width / gridRes; c++) {
+    context.beginPath();
+    context.moveTo(0, (c * gridRes));
+    context.lineTo(canvas.width, (c * gridRes));
+    context.strokeStyle = "#aaa"
+    context.stroke();
+    for (let r = 0; r < (canvas.height / gridRes)*1.5; r++) {
+      context.beginPath();
+      context.moveTo((r * gridRes), 0);
+      context.lineTo((r * gridRes), canvas.height);
+      context.stroke();
+    }
+  }
+} else{
+  gr_s.style.top = "100000px";
+  gridBtn.style.backgroundColor = null
+  gridBtn.style.borderRadius = null
+}
+
+
   pCount.innerHTML = particles.length;
   pivotYlabel.innerHTML = canvas.height - pivot[1];
   pivotXlabel.innerHTML = pivot[0];
 
 
-  context.beginPath();
-  context.moveTo(pivot[0], 0);
-  context.lineTo(pivot[0], canvas.height);
-  context.strokeStyle = "rgb(100, 100, 255)";
-  context.stroke();
 
-  context.moveTo(0, pivot[1]);
-  context.lineTo(canvas.width, pivot[1]);
-  context.strokeStyle = "rgb(255, 0, 0)";
-  context.stroke();
 
-  context.fillStyle = "#022";
-  context.font = "15px sans-serief" ;
-  context.fillText("Y+", pivot[0] + 5, pivot[1] - 5);
-  context.fillText("Y-", pivot[0] + 5, pivot[1] + 15);
   // particles.push(new Particle(5, canvas.height/2, brush_radius))
 
 particles.forEach((partile, index) => {
@@ -574,6 +616,10 @@ particles.forEach((partile, index) => {
 
 ppf_range.max = particles.length
 ppf_value.max = particles.length
+if (ppf_value.value > particles.length||ppf_range.value > particles.length) {
+  ppf_value.value = particles.length
+  ppf_range.value = particles.length
+}
 
 
 if (Circle_br_selected === true) {
@@ -587,8 +633,14 @@ if (Multi_br_selected === true) {
 } else{
   document.getElementById('mBr-s').style.display = "none";
 }
+
 if (pivot_tool_selected === true) {
   new Particle(pivot[0], pivot[1], 5, '#cc0505').draw();
+
+}
+
+if (particle_id.value === "minecraft:dust"||particle_id.value === "dust") {
+  
 }
 
 }
@@ -659,4 +711,9 @@ if (importP_btn.value) {
   }
   reader.readAsText(importP_btn.files[0])
 }
-})
+})  
+function infobar_reset() {
+  pivot[0] = 0;
+  pivot[1] = canvas.height/2;
+  gridRes = document.getElementById('gridRes').value = 20;
+}
