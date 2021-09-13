@@ -435,6 +435,7 @@ function raw_particles(zip) {
 
 let player = "";
 let frame_id = ""
+let fix_ = -1
 function animated_particles(zip) {
   var ppf = particles.length / ppf_value.value
   if (global.checked === true) {
@@ -453,7 +454,7 @@ function animated_particles(zip) {
   var p = data.folder("p")
   var fn = p.folder("functions")
   var framesf = fn.folder("frames")
-  for (let d = 0; d < particles.length; d++) {
+  for (let d = 0; d < ppf; d++) {
     if (anim_type.value === "0-1") {
       frame_id = d
     }
@@ -461,16 +462,23 @@ function animated_particles(zip) {
       frame_id = particles.length - 1 - d
     }
     
-    anim_commands += `execute if score ${player} m_particledraw matches ${Math.trunc((((ppf - 1) * d) + d) / particles.length)} run function p:frames/frame${frame_id}\n`
+    anim_commands += `execute if score ${player} m_particledraw matches ${d * ppf_range.value} run function p:frames/frame${frame_id}\n`
   }
+  //Math.trunc((((ppf - 1) * d) + d) / particles.length)
   var anim = fn.file("anim.mcfunction", anim_commands)
   var start = fn.file("start.mcfunction", "#File Generated With Malik12tree's Particle Drawer.\n" + `scoreboard objectives add m_particledraw dummy\nexecute unless score ${player} m_particledraw matches ${ppf}.. run function p:anim\nscoreboard players add ${player} m_particledraw 1\nexecute if score ${player} m_particledraw matches ${ppf}.. run scoreboard players set ${player} m_particledraw 0`)
 
 
 
   //generate frames
-  for (let t = 0; t < particles.length; t++) {
-    commands = `particle ${particle_id.value} ^ ^${(canvas.height / 2 - particles[t].y) / 100} ^${particles[t].x/100} ${particle_end.value}\n`
+  fix_ = -1
+  for (let t = 0; t < ppf.toFixed(); t++) {
+    commands = ""
+    for (let i = 0; i < ppf_range.value; i++) {
+      fix_+= 1
+      console.log(fix_)
+      commands += `particle ${particle_id.value} ^ ^${(canvas.height / 2 - particles[fix_].y) / 10} ^${particles[fix_].x/10} ${particle_end.value}\n`
+    }
     var file = framesf.file("frame" + t + ".mcfunction", commands)
   }
   commands = ""
