@@ -393,8 +393,8 @@ sub-sections: hsl(50, 26%, 50%)
 }
 .pinfo{
     position: relative;
-    left: 10px;
-    top: -285px;
+    left: 12px;
+    top: -310px;
     color: rgb(204, 255, 231);
 }
 .pinfo h5{
@@ -405,10 +405,27 @@ sub-sections: hsl(50, 26%, 50%)
     width: 600px;
     padding: 5px;
 }
-.pivot_reset{
+.infoBar_reset{
     position: absolute;
     height: 20px;
+    left: 560px;
     margin-left: 2px;
     cursor: pointer;
     transform: rotateZ(-45deg);
+}
+#gridRes{
+    position: relative;
+    width: 43px;
+    border-radius: 5px;
+    border-width: 0px;
+    border: 1px solid black;
+    background-color: hsl(184, 18%, 53%);
+    color: white;
+    font-weight: 600;
+    transition: 0.3s ease;
+    padding: 2px;
+}
+#gridRes:hover{
+    background-color: hsl(184, 26%, 59%);
+    transition: 0.3s ease;
 }
