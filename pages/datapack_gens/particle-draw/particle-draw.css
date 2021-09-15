@@ -15,7 +15,7 @@
     background-color: rgb(255, 255, 255);
     position: relative;
     margin: 10px;
-    top: -55px;
+    top: -35px;
     cursor: url(../../../assets/Brush.svg) -10 20, move;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(1px);
@@ -26,7 +26,6 @@
     text-align: center;
     color: white;
     position: relative;
-    width: 210px;
     top: -6.75%;
     background-color: rgb(62, 73, 68);
     border-radius: 5px;
@@ -85,6 +84,7 @@
     position: relative;
     top: 2px;
     left: 10px;
+    width: 45%;
     cursor: pointer;    
 }
 .brush-settings input[type="number"]{
@@ -107,7 +107,7 @@
 .bar{
     position: relative;
     left: 619px;
-    top: -455px;
+    top: -435px;
 }
 .bar h5{
     position: relative;
@@ -383,7 +383,6 @@ sub-sections: hsl(50, 26%, 50%)
     border: 2px solid black;
     transition: 0.2s ease;
     cursor: pointer;
-    top: -20px;
 }
 .action-bar h5:hover{
     background-color: hsl(0, 19%, 60%);
@@ -394,7 +393,7 @@ sub-sections: hsl(50, 26%, 50%)
 .pinfo{
     position: relative;
     left: 12px;
-    top: -310px;
+    top: -290px;
     color: rgb(204, 255, 231);
 }
 .pinfo h5{

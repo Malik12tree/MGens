@@ -94,7 +94,7 @@ rm_range.value = rm_value.value
 var main_s = document.getElementById('main-s');
 var canvas = document.getElementById('drawing-canvas')
 var context = canvas.getContext("2d");
-canvas.width = 600
+canvas.width = 600 
 canvas.height = 400
 
 
