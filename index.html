@@ -3,22 +3,42 @@
 <head>
     <title>M Gens</title>
     <link rel="shortcut icon" href="assets/MDatapack.svg">
+    <!--  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <!--  -->
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/menus.css">
     
 
 </head>
 <body>
     
 <dev class="main-sech" id="main-s">
-    <h1 style="font-family: fantasy;">
+    <h1>
         M Generators 
     </h1>
-    <sub style="font-family: fantasy;" onclick="window.open('https://www.youtube.com/channel/UCjq_vgJhxWz9iGS0fX6pF3Q','_blank');">by Malik12tree</sub>
-    <p>
-        <dev class="texts">This website contains varios datapack generators for Minecraft to help you with your workflow.</dev>
-        
-    </p>
-    <h1><img src="assets/malik.png" title="visit my channel" id="malik" onclick="window.open('https://www.youtube.com/channel/UCjq_vgJhxWz9iGS0fX6pF3Q','_blank');"></h1>
+    <div class="generators-container">
+        <ul style="list-style: none;display: inline-flex;">
+            <div class="generator" onclick="p()">
+                <img src="assets/cards/Brush.svg" alt="particle-draw">
+                <div class="gen-container">
+                    <h4>Particle Draw</h4>
+                </div>
+            </div>
+            
+            <div class="generator" onclick="t()">
+                <img src="assets/cards/text.svg" alt="particle-draw">
+                <div class="gen-container">
+                    <h4>Text TypeWriter Build</h4>
+                </div>
+            </div>
+        </ul>
+
+
+    </div>
+    <!-- <h1><img src="assets/malik.png" title="visit my channel" id="malik" onclick="window.open('https://www.youtube.com/channel/UCjq_vgJhxWz9iGS0fX6pF3Q','_blank');"></h1> -->
     
 </dev>
 
@@ -30,6 +50,8 @@
             <ul>
                 <li><a href="pages/datapack_gens/particle-draw/particle-draw.html">Particle Draw</a></li>
                 <li><a href="pages/datapack_gens/text-build/text-build.html">Text-TypeWriter-Build</a></li>
+                <!-- <li><a href="pages/datapack_gens/custom-camera-motion/custom-camera-motion.html">Custom-Camera-Motion</a></li> -->
+            
             </ul>
         </div>
         </li>
@@ -39,5 +61,8 @@
 
 
 <script src="main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script src="assets/FileSaver.min.js"></script>
+
 </body>
 </html>
