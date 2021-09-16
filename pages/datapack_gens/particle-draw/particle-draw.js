@@ -466,12 +466,12 @@ if (global.checked === true) {
 
 
 //generate basic stuff
-zip.file("pack.mcmeta", `{\n    "pack": {\n        "description": "Custom Hat",\n        "pack_format": 6\n    }\n}\n`);
+zip.file("pack.mcmeta", `{\n    "pack": {\n        "description": "Particle Draw",\n        "pack_format": 6\n    }\n}\n`);
 var data = zip.folder("data");
 var p = data.folder("p")
 var fn = p.folder("functions")
 var framesf = fn.folder("frames")
-for (let d = 0; d < ppf; d++) {
+for (let d = 0; d < ppf.toFixed(); d++) {
   if (anim_type.value === "0-1") {
     frame_id = d
   }
@@ -483,18 +483,18 @@ for (let d = 0; d < ppf; d++) {
 }
 //Math.trunc((((ppf - 1) * d) + d) / particles.length)
 var anim = fn.file("anim.mcfunction", anim_commands)
-var start = fn.file("start.mcfunction", "#File Generated With Malik12tree's Particle Drawer.\n" + `scoreboard objectives add m_particledraw dummy\nexecute unless score ${player} m_particledraw matches ${ppf}.. run function p:anim\nscoreboard players add ${player} m_particledraw 1\nexecute if score ${player} m_particledraw matches ${ppf}.. run scoreboard players set ${player} m_particledraw 0`)
+var start = fn.file("start.mcfunction", "#File Generated With Malik12tree's Particle Drawer.\n" + `scoreboard objectives add m_particledraw dummy\nexecute unless score ${player} m_particledraw matches ${(ppf).toFixed}.. run function p:anim\nscoreboard players add ${player} m_particledraw 1\nexecute if score ${player} m_particledraw matches ${(ppf).toFixed}.. run scoreboard players set ${player} m_particledraw 0`)
 
 
 
 //generate frames
-fix_ = -1
+fix_ = 0
 for (let t = 0; t < ppf.toFixed(); t++) {
   commands = ""
   for (let i = 0; i < ppf_range.value; i++) {
-    fix_+= 1
-    console.log(fix_)
+    // console.log(fix_)
     commands += `particle ${particle_id.value} ^ ^${(pivot[1] - particles[fix_].y) / 100} ^${(particles[fix_].x - pivot[0]) / 100} ${particle_end.value}\n`
+    fix_+= 1
   }
   var file = framesf.file("frame" + t + ".mcfunction", commands)
 }
