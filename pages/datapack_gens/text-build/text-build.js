@@ -115,7 +115,7 @@ function download_tw(zip) {
        fake_player = "@s"
    }
    
-   var start_f = fn_tb.file("start.mcfunction", `#file generated with Malik12tree's Text-Build.\nscoreboard objectives add m_tb dummy\nscoreboard players add ${fake_player} m_tb 1\nexecute unless score ${fake_player} matches ${chars.length} run function tb:start\nfunction tb:animate\nexecute if score ${fake_player} m_tb matches ${chars.length} run scoreboard players set ${fake_player} m_tb 0`)
+   var start_f = fn_tb.file("start.mcfunction", `#file generated with Malik12tree's Text-Build.\nscoreboard objectives add m_tb dummy\nfunction tb:animate\nscoreboard players add ${fake_player} m_tb 1\nexecute if score ${fake_player} m_tb matches ${chars.length} run scoreboard players set ${fake_player} m_tb 0`)
 
    //letters
    anim_commands = ""
@@ -130,7 +130,7 @@ function download_tw(zip) {
     }
     char_file = chars_f.file(`${chars_j["names"][chars[i]]}` + ".mcfunction", all);
     
-        anim_commands+= `execute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * i) + i) / chars.length)} positioned ^ ^ ^${((5 + (cs_value.value * 1)) * i)} run function tb:letters/${chars_j["names"][chars[i]]}\n`
+        anim_commands+= `execute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * i) + i) / chars.length)} positioned ^ ^ ^${-((7 + (cs_value.value * 1)) * i)} run function tb:letters/${chars_j["names"][chars[i]]}\n`
     
     //((chars_j["size"][chars[i]] * i) + (chars_j["size"][chars[i - 1]] * i) / 10) - chars_j["size"][chars[0]]
 
