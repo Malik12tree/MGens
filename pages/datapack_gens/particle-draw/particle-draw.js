@@ -132,24 +132,75 @@ let particles = []
 let jitterR = 0;
 let jitterA = 0;
 
+let pivotSensivity = 1;
+let canvasHover = false;
 
-window.addEventListener("keydown", function(){
-if (event.key == "b"|| event.key == "B") {
-  brush_select();
-}
-if (event.key == "e"|| event.key == "E") {
-  eraser_select();
-}
-if (event.key == "m"|| event.key == "M") {
-  multi_br_select();
-}
-if (event.key == "c"|| event.key == "C") {
-  arc_br_select();
-}
-if (event.key == "p"|| event.key == "P") {
-  pivot_tool_select()
-}
+canvas.addEventListener("mouseover", function (f) {
+  canvasHover = true
+})
+canvas.addEventListener("mouseout", function (f) {
+  canvasHover = false
+})
 
+window.addEventListener("keydown", function(e){
+  if (canvasHover === true) {
+    if (event.key == "b"|| event.key == "B") {
+      brush_select();
+    }
+    if (event.key == "e"|| event.key == "E") {
+      eraser_select();
+    }
+    if (event.key == "m"|| event.key == "M") {
+      multi_br_select();
+    }
+    if (event.key == "c"|| event.key == "C") {
+      arc_br_select();
+    }
+    if (event.key == "p"|| event.key == "P") {
+      pivot_tool_select()
+    }
+    if (pivot_tool_selected === true && (pivot[0] < canvas.width && pivot[0] > 0 && pivot[1] < canvas.height && pivot[1] > 0)) {
+      if(e.key === "ArrowUp"){
+        pivotSensivity = 5
+        if (e.shiftKey === true) {
+          pivotSensivity = 1
+        }
+        pivot[1] +=- pivotSensivity
+      }
+      
+      if(e.key === "ArrowDown"){
+            pivotSensivity = 5
+        if (e.shiftKey === true) {
+          pivotSensivity = 1
+        }
+        pivot[1] += pivotSensivity
+      }
+      if(e.key === "ArrowLeft"){
+            pivotSensivity = 5
+        if (e.shiftKey === true) {
+          pivotSensivity = 1
+        }
+        pivot[0] +=- pivotSensivity
+      }
+      if(e.key === "ArrowRight"){
+            pivotSensivity = 5
+        if (e.shiftKey === true) {
+          pivotSensivity = 1
+        }
+        pivot[0] += pivotSensivity
+      }
+    } else{
+      if (pivot[0] > canvas.width||pivot[0] == canvas.width) {
+      pivot[0] -= 1
+       } else if (pivot[0] < 0||pivot[0] == 0) {
+        pivot[0] += 1
+      } else if (pivot[1] > canvas.height||pivot[1] == canvas.height) {
+        pivot[1] -= 1
+      } else if (pivot[1] < 0||pivot[1] == 0) {
+        pivot[1] += 1
+      }
+    }
+  }
 })
 canvas.addEventListener('mousedown', e => {
 x = e.offsetX;
@@ -577,7 +628,7 @@ function center_pivot(){
   pivot[1] = minY + (getDistanceX(minY, maxY) / 2) 
   //getDistanceX(minX, maxX) 
   } else{
-    alert(`can's center pivot on ${particles.length} particle  ¯\\_(ツ)_/¯    `)
+    alert(`Can't center the pivot on ${particles.length} particle(s)  ¯\\_(ツ)_/¯    `)
   }
 }
 
@@ -643,18 +694,26 @@ if (grid_toggle_ == 1) {
   gr_s.style.top = null;
   gridBtn.style.backgroundColor = 'hsl(0, 19%, 60%)'
   gridBtn.style.borderRadius = selected_border_radius 
+  context.beginPath();
+  context.moveTo(0, 0);
+  context.lineTo(canvas.width, canvas.height);
+  context.moveTo(0, canvas.height);
+  context.lineTo(canvas.width, 0);
+  context.strokeStyle = "#aaa"
+  context.stroke();
     for (let c = 0; c < canvas.width / gridRes; c++) {
-    context.beginPath();
-    context.moveTo(0, (c * gridRes));
-    context.lineTo(canvas.width, (c * gridRes));
-    context.strokeStyle = "#aaa"
-    context.stroke();
-    for (let r = 0; r < (canvas.height / gridRes)*1.5; r++) {
+
       context.beginPath();
-      context.moveTo((r * gridRes), 0);
-      context.lineTo((r * gridRes), canvas.height);
+      context.moveTo(0, (c * gridRes));
+      context.lineTo(canvas.width, (c * gridRes));
+      context.strokeStyle = "#aaa"
       context.stroke();
-    }
+      for (let r = 0; r < (canvas.height / gridRes)*1.5; r++) {
+        context.beginPath();
+        context.moveTo((r * gridRes), 0);
+        context.lineTo((r * gridRes), canvas.height);
+        context.stroke();
+      }
   }
 } else{
   gr_s.style.top = "100000px";
