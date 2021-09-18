@@ -18,6 +18,8 @@ var cm_range = document.getElementById('cm-range');
 var cm_value = document.getElementById('cm-value');
 var rm_range = document.getElementById('rm-range');
 var rm_value = document.getElementById('rm-value');
+var er_range = document.getElementById('er-range');
+var er_value = document.getElementById('er-value');
 
 s_value.value = s_range.value
 s_range.oninput = function(){
@@ -83,9 +85,17 @@ rm_value.oninput = function(){
 rm_range.value = rm_value.value
 }
 
-
-
-
+let erase_radius = er_value.value * 1;
+er_value.value = er_range.value
+er_range.oninput = function(){
+  er_value.value = er_range.value
+  erase_radius = er_value.value * 1;
+}
+er_range.value = er_value.value
+er_value.oninput = function(){
+er_range.value = er_value.value
+erase_radius = er_value.value * 1;
+}
 
 
 
@@ -160,8 +170,9 @@ if (Brush_selected === true) {
 if (Eraser_selected === true) {
   
   for (let a = 0; a < particles.length; a++) {
-    if (getDistance(particles[a].x, particles[a].y, x, y) < brush_radius) {
+    if (getDistance(particles[a].x, particles[a].y, x, y) < brush_radius + erase_radius) {
       particles.splice(a, 1)
+      //eraseF
     }
   }
   isErasing = true
@@ -240,8 +251,8 @@ if (isErasing == true) {
   x = e.offsetX;
   y = e.offsetY;
   for (let e = 0; e < particles.length; e++) {
-    if (getDistance(particles[e].x, particles[e].y, x, y) < brush_radius) {
-
+    if (getDistance(particles[e].x, particles[e].y, x, y) < brush_radius + erase_radius) {
+      //eraseF
       particles.splice(e, 1)
     }
   }
@@ -321,7 +332,8 @@ multi_br.style.backgroundColor = selected_BGcolor;
 multi_br.style.borderRadius = selected_border_radius;
 }
 function eraser_select() {
-  deselect_all()
+  deselect_all();
+  document.getElementById('eraser-settings').style.display = "block";
 Eraser_selected = true
 canvas.style.cursor = "url(../../../assets/Erase.svg) -10 20, move"
 
@@ -351,6 +363,7 @@ function pivot_tool_select() {
 }
 
 function deselect_all(){
+  document.getElementById('eraser-settings').style.display = "none"
   pivot_tool_selected = false;
   Brush_selected = false;
   Eraser_selected = false;

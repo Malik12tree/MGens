@@ -43,6 +43,9 @@
     
     <h4 class="br-s">Brush Settings</h4>
     <h5>Spacing: <input id="s-range" type="range" value="0" min="0" max="50"><input id="s-value" type="number" value="0" min="0" max="50" ></h5>
+    <div id="eraser-settings" style="display: none;">
+        <h5>Erase Radius:<input id="er-range" type="range" value="5" min="0" max="999" style="width: 30%;"><input id="er-value" type="number" value="5" min="0" max="999"></h5>
+    </div>
     <dev id="arc_br_settings" class="arc_br_settings">
         <h5>Circles:<input id="c-range" type="range" value="22" min="3" max="999"><input id="c-value" type="number" value="22" min="3" max="999"></h5>
         <h5>Distance:<input id="d-range" type="range" value="140" min="40" max="200"><input id="d-value" type="number" value="140" min="40" max="200"></h5>
@@ -83,7 +86,6 @@
             <span class="slider round"></span>
           </label></h5>
     </dev>
-
     <button onclick="download();" id="export" class="export">Export</button>
 
 </dev>
