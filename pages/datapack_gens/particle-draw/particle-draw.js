@@ -560,6 +560,8 @@ function getDistanceX(x1,x2) {
     }
 
 function center_pivot(){
+  if (particles.length > 1) {
+   
   Xposes = [];
   Yposes = [];
   for (let i = 0; i < particles.length; i++) {
@@ -573,7 +575,10 @@ function center_pivot(){
   //centerP
   pivot[0] = minX + (getDistanceX(minX, maxX) / 2) 
   pivot[1] = minY + (getDistanceX(minY, maxY) / 2) 
-  //getDistanceX(minX, maxX)
+  //getDistanceX(minX, maxX) 
+  } else{
+    alert(`can's center pivot on ${particles.length} particle  ¯\\_(ツ)_/¯    `)
+  }
 }
 
 let pivot = [0, canvas.height/2]
