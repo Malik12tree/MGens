@@ -276,12 +276,13 @@ window.addEventListener('mouseup', e => {
   isMultiDrawing = false;
   isMovingPivot = false;
 });
+//getdist
 function getDistance(x1, y1, x2, y2) {
-let Xdistance = x2 - x1
-let Ydistance = y2 - y1
-
-return Math.sqrt(Math.pow(Xdistance, 2) + Math.pow(Ydistance, 2))
-}
+  let Xdistance = x2 - x1
+  let Ydistance = y2 - y1
+  
+  return Math.sqrt(Math.pow(Xdistance, 2) + Math.pow(Ydistance, 2))
+  }
 
 
 function Particle(x, y, brush_radius, color) {
@@ -543,6 +544,38 @@ function grid_toggle() {
    
  } 
 }
+
+let Xposes = [];
+let Yposes = [];
+let minX, minY, maxX, maxY;
+
+function getDistanceX(x1,x2) {
+  let XposD = x2 - x1
+  return Math.sqrt(Math.pow(XposD, 2))
+  }
+  function getDistanceY(y1,y2) {
+    let YposD = y2 - y1
+    
+    return Math.sqrt(Math.pow(YposD, 2))
+    }
+
+function center_pivot(){
+  Xposes = [];
+  Yposes = [];
+  for (let i = 0; i < particles.length; i++) {
+    Xposes.push(particles[i].x);
+    Yposes.push(particles[i].y);
+  }
+  minX = Math.min(...Xposes)
+  minY = Math.min(...Yposes)
+  maxX = Math.max(...Xposes)
+  maxY = Math.max(...Yposes)
+  //centerP
+  pivot[0] = minX + (getDistanceX(minX, maxX) / 2) 
+  pivot[1] = minY + (getDistanceX(minY, maxY) / 2) 
+  //getDistanceX(minX, maxX)
+}
+
 let pivot = [0, canvas.height/2]
 let gridRes;
 let gr_s = document.getElementById('gr_s');
@@ -551,7 +584,7 @@ var pivotXlabel = document.getElementById('pivotXlabel');
 var pivotYlabel = document.getElementById('pivotYlabel');
 var pCount = document.getElementById('pCount');
 var gridBtn = document.getElementById('gridBtn');
-var pColor = document.getElementById('colorP')
+var pColor = document.getElementById('colorP');
 
 function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -568,6 +601,7 @@ for (let i = 0; i < particles.length; i++) {
   brush_radius = document.getElementById('rad').value * 1
   particles[i].brush_radius = brush_radius
 }
+brush_radius = document.getElementById('rad').value * 1
 dustAll = [[particle_id.value[0] + particle_id.value[1] + particle_id.value[2] + particle_id.value[3]], [particle_id.value[0] + particle_id.value[1] + particle_id.value[2] + particle_id.value[3] + particle_id.value[4] + particle_id.value[5] + particle_id.value[6] + particle_id.value[7] + particle_id.value[8] + particle_id.value[9] + particle_id.value[10] + particle_id.value[11] + particle_id.value[12] + particle_id.value[13]]]
   if (dustAll[0][0] === "dust"||dustAll[1][0] === "minecraft:dust") {
     pColor.style.display = "inline-block"
@@ -622,16 +656,11 @@ if (grid_toggle_ == 1) {
   gridBtn.style.backgroundColor = null
   gridBtn.style.borderRadius = null
 }
-
-
   pCount.innerHTML = particles.length;
   pivotYlabel.innerHTML = canvas.height - pivot[1];
   pivotXlabel.innerHTML = pivot[0];
 
-
-
-
-  // particles.push(new Particle(5, canvas.height/2, brush_radius))
+//update particles
 
 particles.forEach((partile, index) => {
   partile.color = "#0f3a80"

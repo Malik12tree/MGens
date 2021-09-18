@@ -394,7 +394,7 @@ sub-sections: hsl(50, 26%, 50%)
 .pinfo{
     position: relative;
     left: 12px;
-    top: -290px;
+    top: -320px;
     color: rgb(204, 255, 231);
 }
 .pinfo h5{
