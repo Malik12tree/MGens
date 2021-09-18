@@ -3,9 +3,11 @@ function discord() {
 }
  var cs_range = document.getElementById('cs_range');
  var cs_value = document.getElementById('cs_value');
-var cpf_range = document.getElementById('cpf_range');
-var cpf_value = document.getElementById('cpf_value');
-
+ var cpf_range = document.getElementById('cpf_range');
+ var cpf_value = document.getElementById('cpf_value');
+ var delay_range = document.getElementById('delay-range');
+ var delay_value = document.getElementById('delay-value');
+let delay = delay_value.value * 1;
 // var typewrite_cb = document.getElementById('typewriter');
 // var typewrite_sec = document.getElementById('typewriter-sec');
 
@@ -28,15 +30,27 @@ var block_id = document.getElementById('block-id');
      cs_range.value = cs_value.value
  }
 
-cpf_value.value = cpf_range.value
-cpf_range.oninput = function(){
-    cpf_value.value = cpf_range.value
-}
+ cpf_value.value = cpf_range.value
+ cpf_range.oninput = function(){
+     cpf_value.value = cpf_range.value
+ }
+ 
+ cpf_range.value = cpf_value.value
+ cpf_value.oninput = function(){
+     cpf_range.value = cpf_value.value
+ }
 
-cpf_range.value = cpf_value.value
-cpf_value.oninput = function(){
-    cpf_range.value = cpf_value.value
-}
+ delay_value.value = delay_range.value
+ delay_range.oninput = function(){
+    delay_value.value = delay_range.value
+    delay = delay_value.value * 1;
+ }
+ 
+ delay_range.value = delay_value.value
+ delay_value.oninput = function(){
+    delay_range.value = delay_value.value
+    delay = delay_value.value * 1;
+ }
 
 
 //setup
@@ -53,7 +67,7 @@ let anim_commands = "";
 fetch('characters.json')
   .then(response => response.json())
   .then(jsonResponse => chars_j = (jsonResponse))
-  .then(e => console.log(chars_j));
+  .then(e => console.log(""));
 
   
 
@@ -81,7 +95,7 @@ function download() {
     // }
        
     download_tw(zip);
-       zip.generateAsync({type:"blob"}).then(function(content) {
+    zip.generateAsync({type:"blob"}).then(function(content) {
         // see FileSaver.js
         saveAs(content, "Text-Build-Datapack.zip");
     });
@@ -115,7 +129,7 @@ function download_tw(zip) {
        fake_player = "@s"
    }
    
-   var start_f = fn_tb.file("start.mcfunction", `#file generated with Malik12tree's Text-Build.\nscoreboard objectives add m_tb dummy\nfunction tb:animate\nscoreboard players add ${fake_player} m_tb 1\nexecute if score ${fake_player} m_tb matches ${chars.length} run scoreboard players set ${fake_player} m_tb 0`)
+   var start_f = fn_tb.file("start.mcfunction", `#file generated with Malik12tree's Text-Build.\nscoreboard objectives add m_tb dummy\nfunction tb:animate\nscoreboard players add ${fake_player} m_tb 1\nexecute if score ${fake_player} m_tb matches ${(chars.length * delay) - delay}.. run scoreboard players set ${fake_player} m_tb 0`)
 
    //letters
    anim_commands = ""
@@ -130,7 +144,7 @@ function download_tw(zip) {
     }
     char_file = chars_f.file(`${chars_j["names"][chars[i]]}` + ".mcfunction", all);
     
-        anim_commands+= `execute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * i) + i) / chars.length)} positioned ^ ^ ^${-((7 + (cs_value.value * 1)) * i)} run function tb:letters/${chars_j["names"][chars[i]]}\n`
+        anim_commands+= `execute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * i) + i) / chars.length * delay)} positioned ^ ^ ^${-((7 + (cs_value.value * 1)) * i)} run function tb:letters/${chars_j["names"][chars[i]]}\n`
     
     //((chars_j["size"][chars[i]] * i) + (chars_j["size"][chars[i - 1]] * i) / 10) - chars_j["size"][chars[0]]
 
