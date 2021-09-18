@@ -87,6 +87,12 @@ text_inp.oninput = function () {
 
 
 function download() {
+    if (chars.length == 0) {
+        chars = ["H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d", "!"]
+        for (let z = 0; z < text_inp.value.length; z++) {
+            chars.push(text_inp.value[z]);
+        }
+    }
     var zip = new JSZip();
     // if (typewrite_cb.checked === true) {
     //     download_tw(zip);
@@ -112,7 +118,7 @@ function download() {
     
 //     commands = "";
 // }
-
+let textinfo = "";
 function download_tw(zip) {
     var cpf = chars.length / cpf_range.value;
 
@@ -128,8 +134,12 @@ function download_tw(zip) {
    } else{
        fake_player = "@s"
    }
-   
-   var start_f = fn_tb.file("start.mcfunction", `#file generated with Malik12tree's Text-Build.\nscoreboard objectives add m_tb dummy\nfunction tb:animate\nscoreboard players add ${fake_player} m_tb 1\nexecute if score ${fake_player} m_tb matches ${((chars.length * delay) - delay) / cpf_range.value}.. run scoreboard players set ${fake_player} m_tb 0`)
+   if (text_inp.value === "") {
+    textinfo = "Hello World!";
+   } else{
+    textinfo = text_inp.value
+   }
+   var start_f = fn_tb.file("start.mcfunction", `#file generated with Malik12tree's Text-Build.\n#Text: ${textinfo}\nscoreboard objectives add m_tb dummy\nfunction tb:animate\nscoreboard players add ${fake_player} m_tb 1\nexecute if score ${fake_player} m_tb matches ${((chars.length * delay) - delay) / cpf_range.value}.. run scoreboard players set ${fake_player} m_tb 0`)
 
    //letters
    anim_commands = ""
