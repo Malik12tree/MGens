@@ -27,6 +27,7 @@
     color: white;
     position: relative;
     top: -40px;
+
     background-color: rgb(62, 73, 68);
     border-radius: 5px;
     padding-left: 10px;
@@ -427,4 +428,22 @@ sub-sections: hsl(50, 26%, 50%)
 #gridRes:hover{
     background-color: hsl(184, 26%, 59%);
     transition: 0.3s ease;
+}
+.ytV{
+    padding: .5em 1em;
+    position: absolute;
+    top: 475px;
+    cursor: pointer;
+    color: white;
+    background-color: #f00;
+    border-radius: 5px;
+    border: 2px solid rgb(90, 0, 0);
+    transition: 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.ytV:hover{
+    background-color: #ff1919;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    color: rgb(233, 188, 188);
 }

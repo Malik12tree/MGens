@@ -1,10 +1,8 @@
-
-
-
-
-
 function discord() {
   window.open('https://discord.gg/N5R8Gg7N7r','_blank');
+}
+function youtube() {
+  window.open('https://youtu.be/L96GEGh5c9A','_blank');
 }
 var s_range = document.getElementById('s-range');
 var s_value = document.getElementById('s-value');
