@@ -564,6 +564,10 @@ function hexToRgb(hex) {
 var dustAll = [[particle_id.value[0] + particle_id.value[1] + particle_id.value[2] + particle_id.value[3]], [particle_id.value[0] + particle_id.value[1] + particle_id.value[2] + particle_id.value[3] + particle_id.value[4] + particle_id.value[5] + particle_id.value[6] + particle_id.value[7] + particle_id.value[8] + particle_id.value[9] + particle_id.value[10] + particle_id.value[11] + particle_id.value[12] + particle_id.value[13]]] 
 function animate() {
 requestAnimationFrame(animate);
+for (let i = 0; i < particles.length; i++) {
+  brush_radius = document.getElementById('rad').value * 1
+  particles[i].brush_radius = brush_radius
+}
 dustAll = [[particle_id.value[0] + particle_id.value[1] + particle_id.value[2] + particle_id.value[3]], [particle_id.value[0] + particle_id.value[1] + particle_id.value[2] + particle_id.value[3] + particle_id.value[4] + particle_id.value[5] + particle_id.value[6] + particle_id.value[7] + particle_id.value[8] + particle_id.value[9] + particle_id.value[10] + particle_id.value[11] + particle_id.value[12] + particle_id.value[13]]]
   if (dustAll[0][0] === "dust"||dustAll[1][0] === "minecraft:dust") {
     pColor.style.display = "inline-block"
@@ -666,7 +670,8 @@ if (Multi_br_selected === true) {
 }
 
 if (pivot_tool_selected === true) {
-  new Particle(pivot[0], pivot[1], 5, '#cc0505').draw();
+  new Particle(pivot[0], pivot[1], brush_radius / 2, '#cc0505').draw();
+  
 
 }
 
@@ -746,5 +751,6 @@ if (importP_btn.value) {
 function infobar_reset() {
   pivot[0] = 0;
   pivot[1] = canvas.height/2;
+  document.getElementById('rad').value = 10
   gridRes = document.getElementById('gridRes').value = 20;
 }

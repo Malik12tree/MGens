@@ -413,7 +413,7 @@ sub-sections: hsl(50, 26%, 50%)
     cursor: pointer;
     transform: rotateZ(-45deg);
 }
-#gridRes{
+.pinfo input[type="number"]{
     position: relative;
     width: 43px;
     border-radius: 5px;
@@ -425,7 +425,7 @@ sub-sections: hsl(50, 26%, 50%)
     transition: 0.3s ease;
     padding: 2px;
 }
-#gridRes:hover{
+.pinfo input[type="number"]:hover{
     background-color: hsl(184, 26%, 59%);
     transition: 0.3s ease;
 }
