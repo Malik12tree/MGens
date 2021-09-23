@@ -721,8 +721,8 @@ if (grid_toggle_ == 1) {
   gridBtn.style.borderRadius = null
 }
   pCount.innerHTML = particles.length;
-  pivotYlabel.innerHTML = canvas.height - pivot[1];
-  pivotXlabel.innerHTML = pivot[0];
+  pivotYlabel.innerHTML = (canvas.height - pivot[1]);
+  pivotXlabel.innerHTML = (pivot[0]).toFixed(1);
 
 //update particles
 
