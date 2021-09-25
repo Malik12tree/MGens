@@ -641,7 +641,7 @@ var pivotYlabel = document.getElementById('pivotYlabel');
 var pCount = document.getElementById('pCount');
 var gridBtn = document.getElementById('gridBtn');
 var pColor = document.getElementById('colorP');
-
+let colorScale = 2;
 function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ? {
@@ -653,11 +653,7 @@ function hexToRgb(hex) {
 var dustAll = [[particle_id.value[0] + particle_id.value[1] + particle_id.value[2] + particle_id.value[3]], [particle_id.value[0] + particle_id.value[1] + particle_id.value[2] + particle_id.value[3] + particle_id.value[4] + particle_id.value[5] + particle_id.value[6] + particle_id.value[7] + particle_id.value[8] + particle_id.value[9] + particle_id.value[10] + particle_id.value[11] + particle_id.value[12] + particle_id.value[13]]] 
 function animate() {
 requestAnimationFrame(animate);
-for (let i = 0; i < particles.length; i++) {
-  brush_radius = document.getElementById('rad').value * 1
-  particles[i].brush_radius = brush_radius
-}
-brush_radius = document.getElementById('rad').value * 1
+colorScale = (ppf_range.value / 2);
 dustAll = [[particle_id.value[0] + particle_id.value[1] + particle_id.value[2] + particle_id.value[3]], [particle_id.value[0] + particle_id.value[1] + particle_id.value[2] + particle_id.value[3] + particle_id.value[4] + particle_id.value[5] + particle_id.value[6] + particle_id.value[7] + particle_id.value[8] + particle_id.value[9] + particle_id.value[10] + particle_id.value[11] + particle_id.value[12] + particle_id.value[13]]]
   if (dustAll[0][0] === "dust"||dustAll[1][0] === "minecraft:dust") {
     pColor.style.display = "inline-block"
@@ -667,7 +663,6 @@ dustAll = [[particle_id.value[0] + particle_id.value[1] + particle_id.value[2] +
   } else{
     pColor.style.display = "none"
   }
-
 gridRes = document.getElementById('gridRes').value * 1;
 context.clearRect(0 ,0 , canvas.width, canvas.height);
 
@@ -730,10 +725,10 @@ particles.forEach((partile, index) => {
   partile.color = "#0f3a80"
   if (previewed === true && animate_cb.checked === true && anim_type.value === "0-1"||previewed === true && animate_cb.checked === true && anim_type.value === "1-0") {
   if (anim_type.value === "0-1") {
-     partile.color = `rgb(${255 - (index / 2)}%, ${0 + (index / 2)}%, 0%)`
+     partile.color = `rgb(${255 - (index / colorScale)}%, ${0 + (index / colorScale)}%, 0%)`
     }
   if (anim_type.value === "1-0") {
-     partile.color = `rgb(${0 + index}%, ${255 - index}%, 0%)`
+     partile.color = `rgb(${0 + (index / colorScale)}%, ${255 - (index / colorScale)}%, 0%)`
     }
   }
   partile.update()
@@ -771,7 +766,6 @@ if (pivot_tool_selected === true) {
 if (particle_id.value === "minecraft:dust"||particle_id.value === "dust") {
   
 }
-
 }
 animate();
 
@@ -813,9 +807,12 @@ rm_value.value = 40;
 }
 
 let export_file, exportJson, importJson;
-
+let particlesJson = []
 function exportP_f() {
-exportJson = JSON.stringify(particles, null, 2);
+  for (let i = 0; i < particles.length; i++) {
+    particlesJson.push({x: particles[i].x, y: particles[i].y})
+  }
+exportJson = JSON.stringify(particlesJson, null, 2);
 // console.log(exportJson );
 
 export_file = new Blob([exportJson], {type: "text/plain;charset=utf-8"});
@@ -835,7 +832,7 @@ if (importP_btn.value) {
     // console.log(reader.result)
     importJson = JSON.parse(reader.result);
     for (let i = 0; i < importJson.length; i++) {
-      particles.push(new Particle(importJson[i].x, importJson[i].y, importJson[i].brush_radius, importJson[i].color))  
+      particles.push(new Particle(importJson[i].x, importJson[i].y, brush_radius))  
     }
   }
   reader.readAsText(importP_btn.files[0])

@@ -21,10 +21,10 @@
                <!-- <p>TypeWrite?<input type="checkbox" id="typewriter"></p> -->
                <p style="top: -2px;">TypeWriter Settings:</p>
                <div id="typewriter-sec">
-                   <p style="top: -1px;">Delay(ticks):</p><input type="range" max="200" min="0" value="20" id="delay-range"><input type="number" max="200" min="0" value="20" id="delay-value">
+                   <p style="top: -1px;">Delay:<button onclick="toggle_time('Toggle_delay', 'Seconds', 'Ticks')" id="Toggle_delay" class="toggle">Ticks</button></p><input type="range" max="200" min="0" value="20" id="delay-range"><input type="number" max="200" min="0" value="20" id="delay-value">
                    <p style="top: -1px;">Character Spacing:</p><input type="range" id="cs_range" value="0" max="25" min="0" step="1"><input type="number" id="cs_value" value="0" max="25" min="0" step="1">
                    <p style="top: -1px;">Characters Per Frame:</p><input type="range" id="cpf_range" min="1" max="50" value="1"><input type="number" id="cpf_value" min="1" max="50" value="1">
-                   <p style="top: 5px;">Global?<input type="checkbox" id="global"></p>
+                   <p style="top: 5px;" title="determines if the animation is display-ed by a fake player() or the entity executing the command(@s)">Global?:<input type="checkbox" id="global"></p>
                </div>
                <button class="export" onclick="download();">Export</button>
         </h5>
@@ -41,7 +41,7 @@
                 <ul>
                     <li><a href="../particle-draw/particle-draw.html">Particle Draw</a></li>
                     <li><a href="../text-build/text-build.html">Text-TypeWriter-Build</a></li>
-                    <!-- <li><a href="../video-to-particles/video_to_particles.html">Video To Particles</a></li> -->
+                    <li><a href="../animated-build/animated-build.html">Animated Build</a></li>
                 </ul>
             </div>
             </li>
@@ -58,7 +58,7 @@
         
     <script src= "text-build.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-    <script src="../../../assets/FileSaver.min.js"></script>
+    <script src="../../../js/FileSaver.min.js"></script>
 
 
 </body>

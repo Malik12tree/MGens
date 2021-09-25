@@ -36,7 +36,6 @@
 <dev class="pinfo">
     <h5>Particles Count: <label id="pCount">0</label>
          | Pivot: <label id="pivotXlabel">5</label>, <label id="pivotYlabel">200</label><img class="infoBar_reset" src="../../../assets/reset.svg" onclick="infobar_reset();">
-         <label>| Particle Radius(visual): <input type="number" id="rad" value="10" min="5" max="50" style="width: 6%;"></label>
      <label id="gr_s">| Grid-Res: <input type="number" id="gridRes" value="20" min="10" max="200"></label> 
         </h5>
 </dev>
@@ -81,7 +80,7 @@
             <option value="b-t">Bottom To Top</option> -->
         </select></h5>
         <h5>Particles Per Frame:<input id="ppf-range" class="ppf-range" type="range" value="1" min="1" max="50"><input id="ppf-value" class="ppf-value" type="number" value="10" min="1" max="50" ></h5>
-        <h5>Global?<input type="checkbox" class="global" id="global"></h5>
+        <h5 title="determines if the animation is display-ed by a fake player() or the entity executing the command(@s)">Global?<input type="checkbox" class="global" id="global"></h5>
 
         <h5 id="preview">Preview:<label class="switch">
             <input type="checkbox" id="switch-preview">
@@ -105,7 +104,7 @@
                 <ul>
                     <li><a href="particle-draw.html">Particle Draw</a></li>
                     <li><a href="../text-build/text-build.html">Text-TypeWriter-Build</a></li>
-                    <!-- <li><a href="../video-to-particles/video_to_particles.html">Video To Particles</a></li> -->
+                    <li><a href="../animated-build/animated-build.html">Animated Build</a></li>
                 </ul>
             </div>
             </li>
@@ -120,7 +119,7 @@
         
     <script src= "particle-draw.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-    <script src="../../../assets/FileSaver.min.js"></script>
+    <script src="../../../js/FileSaver.min.js"></script>
       
 
 </body>

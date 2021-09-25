@@ -10,6 +10,7 @@
 
 }
 #drawing-canvas{
+    
     border: 3px solid black;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
@@ -166,6 +167,7 @@
     color: white;
     font-weight: 400;
     font-size: 1em;
+    
 }
 .ptcl-input:hover{
     background-color: hsl(50, 26%, 59%);

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Animated Build</title>
+    <link rel="shortcut icon" href="../../../assets/MDatapack.svg">
+
+    <link rel="stylesheet" href="animated-build.css">
+    <link rel="stylesheet" href="../../../css/menus.css">
+
+
+</head>
+<body>
+<dev class="main-sec" id="main-s">
+    <h1 class="title">Animated Build</h1>
+    
+    <h5 class="sub-sec" >
+        <input type="file" id="upload" accept=".nbt" hidden>
+        <button onclick="upload.click()" id="upload-btn">Upload Structure</button>
+        <p>Settings:</p>
+        <div class="FBnbts">
+            
+            <p>Delay: <input type="number" id="delay" value="0"><button onclick="toggle_time('Toggle_delay', 'Seconds', 'Ticks')" id="Toggle_delay" class="toggle">Ticks</button></p>
+            
+            <p>Place Type: <select id="placeType">
+                <option value="replace">replace</option>
+                <option value="destroy">destroy</option>
+                <option value="keep">keep</option>
+            </select></p>
+
+            <p>Blocks Per Frame: <input type="range" id="bpf-range" value="1" min="1" max="1000"><input type="number" id="bpf-value" value="1" min="1" max="1000"></p>
+            <p title="determines if the animation is display-ed by a fake player() or the entity executing the command(@s)">Global?: <input type="checkbox" id="global"></p>    
+        </div>
+        <p style="top: 5px;position: relative;color: rgb(185, 185, 185);">(Block Count: <label id="countB">0)</label></p>
+        
+        <button onclick="download()" style="top: 10px;">Export</button>
+    </h5>
+</dev>
+
+    <dev class="menus">
+        <ul>
+            <li><a href="../../../index.html">Home</a></li>
+            <li><a>Generators<img class= "dpgem" src="../../../assets/expand_more.svg"></a>
+            <div class="dp-gens">
+                <ul>
+                    <li><a href="../particle-draw/particle-draw.html">Particle Draw</a></li>
+                    <li><a href="../text-build/text-build.html">Text-TypeWriter-Build</a></li>
+                    <li><a href="animated-build.html">Animated Build</a></li>
+
+                </ul>
+            </div>
+            </li>
+
+            
+            <li><a onclick="discord();">Discord</a></li>
+
+            
+        </ul>
+        
+    </dev>
+
+    <script src="../../../js/nbt.js"></script>
+    <script src="../../../js/pako.js"></script>
+    <script src= "animated-build.js"></script>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="../../../js/FileSaver.min.js"></script>
+
+
+</body>
+</html>

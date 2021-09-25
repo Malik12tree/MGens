@@ -37,32 +37,8 @@ sub-sections: hsl(50, 26%, 50%) */
 .main-sech sub:hover{
     color: rgb(160, 160, 160);
 }
-#malik{
-    position: relative;
-    top: 175px;
-    height: 200px;
-    border-radius: 10%;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-    border: 2px solid rgb(42, 42, 42);
-    transition: 1s ease;
-    cursor: pointer;
-}
-#malik:hover{
-    animation: rotatee 1s ease; 
-    transition: 1s ease;
-    height: 230px;
-    top: 155px;
-    
-}
-@keyframes rotatee {
-    /* from {transform: rotateZ(0deg);} */
-    10% {border-radius: 50%;}
-    100% {border-radius: 10%;}
-    /* to {transform: rotateZ(360deg);} */
-}
-
 .generator{
-    width: 30%;
+    width: 20.75%;
     margin: 15px;
     cursor: pointer;
     position: relative;
@@ -70,7 +46,7 @@ sub-sections: hsl(50, 26%, 50%) */
     background-color: hsla(184, 18%, 53%, 0.25);
     border: 4px solid rgba(255, 255, 255, 0.2);
     top: 0px;
-    transition: 0.3s;
+    transition: 0.3s cubic-bezier(0.7,-0.46, 0.36, 1);
 
 }
 .generator:hover{
@@ -78,7 +54,7 @@ sub-sections: hsl(50, 26%, 50%) */
   border-radius: 10px;
   border: 4px solid rgba(255, 255, 255, 0.4);
   top: -10px;
-  transition: 0.3s;
+  transition: 0.3s cubic-bezier(0.7,-0.46, 0.36, 1);
   background-color: hsla(184, 18%, 45%, 0.25);
 
 }
@@ -91,10 +67,12 @@ sub-sections: hsl(50, 26%, 50%) */
 .generator img{
     transition: 0.3s;
     border: 4px solid rgba(255, 255, 255, 0.2);
-    width:100%
+    width:100%;
+    box-shadow: inset -5px 4px 2px 0px rgba(0, 0, 0, 0.13);
 }
 .gen-container{
     padding: 5px 16px;
+    
 }
 .gen-container h4{
     color: white;

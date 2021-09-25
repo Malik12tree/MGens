@@ -1,5 +1,4 @@
 /* @font-face { font-family: minecraft; src: url('../../../assets/Minecraft.ttf'); }  */
-
 .main-sec{
     position: fixed;
     top: 100px;
@@ -9,23 +8,25 @@
     width: 70%;
     box-shadow: 2px 5px 4px rgba(38, 42, 40, 0.5);
     border-radius: 10px;
+    /* display: grid;
+    align-content: center; */
 }
 .main-sec h5{
     text-align: center;
     color: white;
 }
-.main-sec input[type="range"]{
+input[type="range"]{
     position: relative;
     top: 2px;
     left: 10px;
     cursor: pointer;
-    
-    
 }
-.main-sec input[type="number"]{
+
+input[type="number"]{
     position: relative;
-    left: 12px;
-    width: 40px;
+    left: 15px;
+    width: 21%;
+    padding: 2px;
     border-radius: 5px;
     border-width: 0px;
     border: 1px solid black;
@@ -34,15 +35,16 @@
     font-weight: 600;
     transition: 0.3s ease;
 }
-.main-sec input[type="number"]:hover{
+input[type="number"]:hover{
     background-color: hsl(50, 7%, 51%);
     transition: 0.3s ease;
 }
-.main-sec input[type="checkbox"]{
+
+input[type="checkbox"]{
     position: relative;
     top: 2.5px;
     left: 5px;
-    border: 1px solid black;
+    border: 4px solid black;
     cursor: pointer;
     width: 15px;
     height: 15px;
@@ -57,7 +59,6 @@ button{
     border-radius: 5px;
     position: relative;
     cursor: pointer;
-    width: 60px;
     transition: 0.3s ease;
 }
 button:hover{
@@ -65,50 +66,19 @@ button:hover{
     color: rgb(228, 228, 228);
     transition: 0.3s ease;
 }
-.main-sec input[type="text"]{
+input[type="text"]{
     position: relative;
     height: 25px;
     border-radius: 5px;
     border: 1px solid black;
     background-color: hsl(50, 18%, 53%);
     color: white;
-    font-weight: 800;
-    font-family: cursive;
     width: 70%;
     margin-top: 5px;
+    overflow: auto;
     padding: 10px;
 }
-.sub-sec{
-    position: relative;
-    left: 25%;
-    padding: 10px;
-    /* height: 200px; */
-    width: 50%;
-    background-color: hsl(50, 26%, 50%);
-    border-radius: 10px;
-    border: 2px solid hsl(0, 0%, 20%) ;
-    box-shadow: 1px 2px 3px hsla(0, 0%, 0%, 0.15);
-}
-#typewriter-sec{
-    /* display: none; */
-    background-color: rgb(179, 172, 78);
-    border-radius: 5px;
-    padding: 10px;
-    border: 2px solid rgba(36, 36, 36, 0.7);
-    width: 70%;
-    position: relative;
-    left: 15%;
-}
-#block-id{
-    width: 35%;
-    position: relative;
-    
-}
-.export{
-    position: relative;
-    top: 2.5px;
-}
-.tb{
+.title{
     font-family: monospace;
     text-align: center;
     color: white;
@@ -121,25 +91,53 @@ button:hover{
     padding-top: 2px;
     padding-bottom: 2px;
 }
-.tb_info{
-    font-family: monospace;
-    text-align: center;
-    color: white;
+select{
     position: relative;
-    left: 360px;
-    top: -60px;
-    max-width: 500px;
-    background-color: rgb(62, 73, 68);
+    height: 25px;
     border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    border: 1px solid black;
+    background-color: hsl(50, 18%, 53%);
+    color: white;
+    width: 25%;
+    top: 0px;
+    font-size: 80%;
+    padding: 5px;
+}
+.FBnbts p{
+    margin: 5px;
+    color: white;
+    font-weight: 600;
+}
+textarea{
+    position: relative;
+    left: 25px;
+    min-width: 30%;
+    width: 70%;
+    min-height: 50px;
+    max-height: 100px; 
+    max-width: 92%;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: hsl(184, 18%, 53%);
+    color: white;
+    padding: 10px;
+}
+.FBnbts{
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    background-color: rgb(179, 172, 78);
+    position: relative;
+    left: 10%;
+    text-align: left;
+    top: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 .toggle{
     padding: 5px;
     width: 60px;
-    left: 10px;
+    left: 20px;
     font-size: .7rem;
     font-weight: 700;
     background-color: hsl(126, 18%, 53%);
@@ -147,4 +145,14 @@ button:hover{
 }
 .toggle:hover{
     background-color: hsl(126, 26%, 62%);
+}
+.sub-sec{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    background: hsl(50, 26%, 50%);
+    position: relative;
+    width: 60%;
+    border: 2px solid rgb(24, 29, 25);
+    border-radius: 10px;
+    left: 20%;
+    padding: 20px;
 }

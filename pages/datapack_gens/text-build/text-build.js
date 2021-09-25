@@ -73,6 +73,19 @@ fetch('characters.json')
 
 //
 
+let tog = 0;
+let ST = 1;
+function toggle_time(id, after, before) {
+    tog++
+    if (tog === 1) {
+        document.getElementById(id).innerHTML = after;
+        ST = 20
+    } else{
+        document.getElementById(id).innerHTML = before;
+        ST = 1;
+        tog = 0;
+    }
+}
 
 function log() {
     console.log(chars)
@@ -139,7 +152,10 @@ function download_tw(zip) {
    } else{
     textinfo = text_inp.value
    }
-   var start_f = fn_tb.file("start.mcfunction", `#file generated with Malik12tree's Text-Build.\n#Text: ${textinfo}\nscoreboard objectives add m_tb dummy\nfunction tb:animate\nscoreboard players add ${fake_player} m_tb 1\nexecute if score ${fake_player} m_tb matches ${((chars.length * delay) - delay) / cpf_range.value}.. run scoreboard players set ${fake_player} m_tb 0`)
+   var start_f = fn_tb.file("start.mcfunction", `#file generated with Malik12tree's Text-Build.\n#Text: ${textinfo}\nscoreboard objectives add m_tb dummy\nfunction tb:animate\nscoreboard players add ${fake_player} m_tb 1\nexecute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * chars.length) + chars.length) / chars.length) * (delay * ST) +1}.. run scoreboard players set ${fake_player} m_tb 0`)
+   //
+   //((chars.length * (delay * ST)) - (delay * ST)) / cpf_range.value
+   //
 
    //letters
    anim_commands = ""
@@ -151,10 +167,9 @@ function download_tw(zip) {
     for (let k = 0; k < chars_j["charss"][chars[i]].length; k++) {
         all+= chars_j["charss"][chars[i]][k]
         
+        char_file = chars_f.file(`${chars_j["names"][chars[i]]}` + ".mcfunction", all);   
     }
-    char_file = chars_f.file(`${chars_j["names"][chars[i]]}` + ".mcfunction", all);
-    
-        anim_commands+= `execute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * i) + i) / chars.length) * delay} positioned ^ ^ ^${-((7 + (cs_value.value * 1)) * i)} run function tb:letters/${chars_j["names"][chars[i]]}\n`
+        anim_commands+= `execute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * i) + i) / chars.length) * (delay * ST)} positioned ^ ^ ^${-((7 + (cs_value.value * 1)) * i)} run function tb:letters/${chars_j["names"][chars[i]]}\n`
     
     //((chars_j["size"][chars[i]] * i) + (chars_j["size"][chars[i - 1]] * i) / 10) - chars_j["size"][chars[0]]
 
@@ -173,8 +188,11 @@ function download_tw(zip) {
 
 function animate() {
     requestAnimationFrame(animate);
-
     cpf_range.max = chars.length
     cpf_value.max = chars.length
+    if (cpf_value.value > chars.length && chars.length !== 0) {
+        cpf_value.value = chars.length
+        cpf_range.value = chars.length
+    }
 }
 animate();
