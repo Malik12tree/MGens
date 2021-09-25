@@ -134,7 +134,8 @@
     top: 215px;
     border-radius: 5px;
     width: 250px;
-    height: 200px;
+    padding-bottom: 10px;
+    /* height: 200px; */
     background-color: hsl(51, 10%, 43%);
     box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.2); 
     border: 2.5px solid rgb(38, 42, 40);
@@ -183,6 +184,9 @@
     color: white;
     font-weight: 400;
     font-size: 1em;
+    display: flex;
+    overflow: scroll;
+    resize: both;
 }
 .ptcl-id-input:hover{
     background-color: hsl(50, 26%, 59%);
@@ -230,7 +234,6 @@
     border-radius: 5px;
     position: relative;
     left: 95px;
-    top: 10px;
     cursor: pointer;
     width: 60px;
 }

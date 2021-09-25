@@ -63,8 +63,10 @@
 <dev class="export-settings" id="export-settings">
     <h4 class="ex-s">Export Settings</h4>
     <h5>Particle:</h5> 
-    <input type="text" spellcheck="false" class="ptcl-id-input" id="ptcl-id-input" value="minecraft:flame"> <input type="color" style="cursor: pointer;padding: 0px;background-color: rgb(185, 182, 157);position: relative; left: 10px;display: none;" id="colorP" value="#ffffff">
-    
+    <input type="text" list="particlesList" spellcheck="false" class="ptcl-id-input" id="ptcl-id-input" value="flame">
+    <datalist id="particlesList">
+
+    </datalist>
     <input type="text" spellcheck="false" class="ptcl-input" id="ptcl-input" value="0 0 0 0 1 force @a">
 
     <h5>Animate: <input type="checkbox" id="animate" class="animate"></h5>

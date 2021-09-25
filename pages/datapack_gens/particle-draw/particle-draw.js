@@ -450,7 +450,7 @@ console.log(particles)
 }
 
 
-
+let particlesList = ("ambient_entity_effect angry_villager ash barrier block bubble bubble_pop bubble_column_up campfire_cosy_smoke campfire_signal_smoke cloud composter crimson_spore crit current_down damage_indicator dolphin dragon_breath dripping_dripstone_lava dripping_dripstone_water dripping_lava dripping_obsidian_tear dripping_water dust dust_color_transition effect elder_guardian electric_spark enchant enchanted_hit end_rod entity_effect explosion_emitter explosion falling_dripstone_lava falling_dripstone_water falling_dust falling_lava falling_obsidian_tear falling_spore_blossom falling_water firework fishing flame flash glow glow_squid_ink happy_villager heart instant_effect item item_slime item_snowball landing_lava landing_obsidian_tear large_smoke lava light mycelium nautilus note poof portal rain scrape smoke sneeze snowflake soul soul_fire_flame spit splash spore_blossom_air squid_ink sweep_attack totem_of_undying underwater vibration warped_spore wax_off wax_on white_ash witch").split(" ");
 var animate_cb = document.getElementById('animate');
 var anim_settings = document.getElementById('animation-settings');
 var anim_type = document.getElementById('anim-type');
@@ -459,6 +459,9 @@ var particle_end = document.getElementById('ptcl-input');
 var ppf_range = document.getElementById('ppf-range');
 var ppf_value = document.getElementById('ppf-value');
 var global = document.getElementById('global');
+for (let i = 0; i < particlesList.length; i++) {
+  document.getElementById("particlesList").innerHTML += `<option value="${particlesList[i]}">${particlesList[i]}</option>`
+}
 
 ppf_value.value = ppf_range.value
 ppf_range.oninput = function(){
@@ -472,24 +475,9 @@ ppf_range.value = ppf_value.value
 
 
 
-//not important=>
-var exp_settings = document.getElementById('export-settings');
-let height_anim = 200
-function anim_height() {
-height_anim+=20
-if (height_anim < 310) {
-  requestAnimationFrame(anim_height);
-  exp_settings.style.height = height_anim + "px"
-} else{
-  height_anim = 200
-}
-}
-//not important^
-
 animate_cb.addEventListener("change", function(){
 if (animate_cb.checked === true) {
   anim_settings.style.display = "block";
-  anim_height();
 } else{
   anim_settings.style.display = "none";
   exp_settings.style.height = null
