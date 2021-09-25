@@ -129,6 +129,10 @@ let brush_spacing = 0
 let brush_radius = 10
 let particles = []
 
+let erasePos = {
+  x: 0,
+  y: 0
+}
 let jitterR = 0;
 let jitterA = 0;
 
@@ -297,6 +301,11 @@ if (isMultiDrawing === true) {
       
     }
   }
+}
+
+if (Eraser_selected) {
+  erasePos.x = e.offsetX;
+  erasePos.y = e.offsetY;
 }
 if (isErasing == true) {
   x = e.offsetX;
@@ -665,8 +674,19 @@ colorScale = (ppf_range.value / 2);
 //   }
 gridRes = document.getElementById('gridRes').value * 1;
 context.clearRect(0 ,0 , canvas.width, canvas.height);
+if (Eraser_selected && canvasHover) {
+  context.beginPath();
+  context.arc(erasePos.x, erasePos.y,  erase_radius + brush_radius, 0, 2 * Math.PI);
+  context.strokeStyle = "rgb(0, 0, 0)";
+  context.lineWidth = 1.5;
+  
+  context.stroke();
+
+}
+
 
 context.beginPath();
+context.lineWidth = 1;
 context.moveTo(pivot[0], 0);
 context.lineTo(pivot[0], canvas.height);
 context.strokeStyle = "rgb(100, 100, 255)";
