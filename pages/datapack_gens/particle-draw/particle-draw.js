@@ -543,7 +543,7 @@ for (let d = 0; d < ppf.toFixed(); d++) {
 }
 //Math.trunc((((ppf - 1) * d) + d) / particles.length)
 var anim = fn.file("anim.mcfunction", anim_commands)
-var start = fn.file("start.mcfunction", "#File Generated With Malik12tree's Particle Drawer.\n" + `scoreboard objectives add m_particledraw dummy\nexecute unless score ${player} m_particledraw matches ${(ppf).toFixed}.. run function p:anim\nscoreboard players add ${player} m_particledraw 1\nexecute if score ${player} m_particledraw matches ${(ppf).toFixed}.. run scoreboard players set ${player} m_particledraw 0`)
+var start = fn.file("start.mcfunction", "#File Generated With Malik12tree's Particle Drawer.\n" + `scoreboard objectives add m_particledraw dummy\nexecute unless score ${player} m_particledraw matches ${(ppf).toFixed()}.. run function p:anim\nscoreboard players add ${player} m_particledraw 1\nexecute if score ${player} m_particledraw matches ${(ppf).toFixed()}.. run scoreboard players set ${player} m_particledraw 0`)
 
 
 
@@ -853,4 +853,4 @@ function infobar_reset() {
   pivot[1] = canvas.height/2;
   document.getElementById('rad').value = 10
   gridRes = document.getElementById('gridRes').value = 20;
-} 
+}
