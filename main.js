@@ -1,3 +1,6 @@
+if(location.href === 'https://malik12tree.github.io/index.html'){
+    location.href = "https://malik12tree.github.io"
+}
 function discord() {
     window.open('https://discord.gg/N5R8Gg7N7r','_blank');
 }
