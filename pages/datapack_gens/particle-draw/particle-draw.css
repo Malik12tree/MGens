@@ -235,7 +235,6 @@
     position: relative;
     left: 95px;
     cursor: pointer;
-    width: 60px;
 }
 .export:hover{
     background-color: hsl(50, 26%, 59%);
