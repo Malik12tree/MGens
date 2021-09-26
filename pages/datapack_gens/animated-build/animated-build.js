@@ -98,6 +98,7 @@ let anim_commands = "";
 let nbts = ""; 
 let states = "";
 let statesArr = [];
+let nbtsArr = [];
 let bpf = 0;
 let Fixair = 0;
 let dela = 0;
@@ -121,7 +122,8 @@ function download() {
         block_prop.BlockState.Name = nbtParsed.palette[nbtParsed.blocks[i].state.value].Name.value
         cords = `^${(nbtParsed.blocks[i].pos.value.value[0])} ^${(nbtParsed.blocks[i].pos.value.value[1])} ^${(nbtParsed.blocks[i].pos.value.value[2])}`;
         
-        states = "";  
+        states = "";
+        nbts = "";  
         // console.log(Object.keys(nbtParsed.palette[nbtParsed.blocks[9038].state.value].Properties.value))
         if (block_prop.BlockState.Name !== "minecraft:air") {
             //block states
@@ -134,6 +136,7 @@ function download() {
             //
             anim_commands += `execute if score ${datapack.player} ${datapack.scoreboard} matches ${(Math.trunc((((bpf - 1) * Fixair) + Fixair) / maxBlocks) * dela)} run setblock ${cords} ${block_prop.BlockState.Name}[${states}] ${placeType.value}\n`;
             Fixair++
+            //{${nbts.replace(/"([^"]+)":/g, '$1:')}}
         };
     }
     //cubic-bezier(0.7,-0.46, 0.36, 1);
