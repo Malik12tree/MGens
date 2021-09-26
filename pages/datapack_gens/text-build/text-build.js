@@ -152,7 +152,7 @@ function download_tw(zip) {
    } else{
     textinfo = text_inp.value
    }
-   var start_f = fn_tb.file("start.mcfunction", `#file generated with Malik12tree's Text-Build.\n#Text: ${textinfo}\nscoreboard objectives add m_tb dummy\nfunction tb:animate\nscoreboard players add ${fake_player} m_tb 1\nexecute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * chars.length) + chars.length) / chars.length) * (delay * ST) +1}.. run scoreboard players set ${fake_player} m_tb 0`)
+   var start_f = fn_tb.file("start.mcfunction", `#file generated with Malik12tree's Text-Build.\n#Text: ${textinfo}\nscoreboard objectives add m_tb dummy\nscoreboard players add ${fake_player} m_tb 0\nfunction tb:animate\nscoreboard players add ${fake_player} m_tb 1\nexecute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * chars.length) + chars.length) / chars.length) * (delay * ST) +1}.. run scoreboard players set ${fake_player} m_tb 0`);
    //
    //((chars.length * (delay * ST)) - (delay * ST)) / cpf_range.value
    //
