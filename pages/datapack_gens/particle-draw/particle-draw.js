@@ -460,7 +460,7 @@ var ppf_range = document.getElementById('ppf-range');
 var ppf_value = document.getElementById('ppf-value');
 var global = document.getElementById('global');
 for (let i = 0; i < particlesList.length; i++) {
-  document.getElementById("particlesList").innerHTML += `<option value="${particlesList[i]}">${particlesList[i]}</option>`
+  document.getElementById("particlesList").innerHTML += `<option>minecraft:${particlesList[i]}</option>`
 }
 
 ppf_value.value = ppf_range.value
@@ -608,7 +608,7 @@ function getDistanceX(x1,x2) {
     }
 
 function center_pivot(){
-  if (particles.length > 1) {
+  if (particles.length > 0) {
    
   Xposes = [];
   Yposes = [];
@@ -625,7 +625,7 @@ function center_pivot(){
   pivot[1] = minY + (getDistanceX(minY, maxY) / 2) 
   //getDistanceX(minX, maxX) 
   } else{
-    alert(`Can't center the pivot on ${particles.length} particle(s)  ¯\\_(ツ)_/¯    `)
+    alert(`Can't center the pivot on ${particles.length} particles  ¯\\_(ツ)_/¯    `)
   }
 }
 
@@ -662,15 +662,6 @@ colorScale = (ppf_range.value / 2);
 //   }
 gridRes = document.getElementById('gridRes').value * 1;
 context.clearRect(0 ,0 , canvas.width, canvas.height);
-if (Eraser_selected && canvasHover) {
-  context.beginPath();
-  context.arc(erasePos.x, erasePos.y,  erase_radius + brush_radius, 0, 2 * Math.PI);
-  context.strokeStyle = "rgb(0, 0, 0)";
-  context.lineWidth = 1.5;
-  
-  context.stroke();
-
-}
 
 
 context.beginPath();
@@ -724,7 +715,7 @@ if (grid_toggle_ == 1) {
   gridBtn.style.borderRadius = null
 }
   pCount.innerHTML = particles.length;
-  pivotYlabel.innerHTML = (canvas.height - pivot[1]);
+  pivotYlabel.innerHTML = (canvas.height - pivot[1]).toFixed(1);
   pivotXlabel.innerHTML = (pivot[0]).toFixed(1);
 
 //update particles
@@ -773,6 +764,16 @@ if (pivot_tool_selected === true) {
 
 if (particle_id.value === "minecraft:dust"||particle_id.value === "dust") {
   
+}
+
+if (Eraser_selected && canvasHover) {
+  context.beginPath();
+  context.arc(erasePos.x, erasePos.y,  erase_radius + brush_radius, 0, 2 * Math.PI);
+  context.strokeStyle = "rgb(0, 0, 0)";
+  context.lineWidth = 1.5;
+  
+  context.stroke();
+
 }
 }
 animate();
@@ -845,10 +846,11 @@ if (importP_btn.value) {
   }
   reader.readAsText(importP_btn.files[0])
 }
+
 })  
 function infobar_reset() {
   pivot[0] = 0;
   pivot[1] = canvas.height/2;
   document.getElementById('rad').value = 10
   gridRes = document.getElementById('gridRes').value = 20;
-}
+} 
