@@ -488,6 +488,10 @@ if (animate_cb.checked === true) {
 let commands = ""
 let frame_file_name = ""
 let anim_commands = ""
+let datapack = {
+  namespace: "namespace",
+  path: "path"
+}
 function download() {
 var zip = new JSZip();
 if (animate_cb.checked === true) {
@@ -504,7 +508,7 @@ zip.generateAsync({type:"blob"}).then(function(content) {
 }
 function raw_particles(zip) {
 for (let k = 0; k < particles.length; k++) {
-  commands+= `particle ${particle_id.value} ^ ^${(pivot[1] - particles[k].y) / 100} ^${(particles[k].x - pivot[0]) / 100} ${particle_end.value}\n`
+  commands+= `particle ${particle_id.value} ^${(particles[k].x - pivot[0]) / 100} ^${(pivot[1] - particles[k].y) / 100} ^ ${particle_end.value}\n`
 }
  var file = zip.file("Particles.mcfunction", "#File Generated With Malik12tree's Particle Drawer.\n" + commands)
  commands = ""
@@ -512,8 +516,15 @@ for (let k = 0; k < particles.length; k++) {
 
 let player = "";
 let frame_id = ""
-let fix_ = -1
+let fix_ = 0
 function animated_particles(zip) {
+  if (document.getElementById('namespace-inp').value.toLowerCase()) {
+    datapack.namespace = document.getElementById('namespace-inp').value.toLowerCase();
+  }
+  if (document.getElementById('path-inp').value.toLowerCase()) {
+    
+    datapack.path = document.getElementById('path-inp').value.toLowerCase();
+  }
 var ppf = particles.length / ppf_value.value
 if (global.checked === true) {
   //fake player
@@ -527,10 +538,8 @@ if (global.checked === true) {
 
 //generate basic stuff
 zip.file("pack.mcmeta", `{\n    "pack": {\n        "description": "Particle Draw",\n        "pack_format": 6\n    }\n}\n`);
-var data = zip.folder("data");
-var p = data.folder("p")
-var fn = p.folder("functions")
-var framesf = fn.folder("frames")
+
+let framesf = zip.folder([`data/${datapack.namespace}/functions/${datapack.path}/frames`])
 for (let d = 0; d < ppf.toFixed(); d++) {
   if (anim_type.value === "0-1") {
     frame_id = d
@@ -539,25 +548,30 @@ for (let d = 0; d < ppf.toFixed(); d++) {
     frame_id = particles.length - 1 - d
   }
   
-  anim_commands += `execute if score ${player} m_particledraw matches ${d} run function p:frames/frame${frame_id}\n`
+  anim_commands += `execute if score ${player} m_particledraw matches ${d} run function ${datapack.namespace}:${datapack.path}/frames/frame${frame_id}\n`
 }
-//Math.trunc((((ppf - 1) * d) + d) / particles.length)
-var anim = fn.file("anim.mcfunction", anim_commands)
-var start = fn.file("start.mcfunction", "#File Generated With Malik12tree's Particle Drawer.\n" + `scoreboard objectives add m_particledraw dummy\nexecute unless score ${player} m_particledraw matches ${(ppf).toFixed()}.. run function p:anim\nscoreboard players add ${player} m_particledraw 1\nexecute if score ${player} m_particledraw matches ${(ppf).toFixed()}.. run scoreboard players set ${player} m_particledraw 0`)
+//Math.trunc((((ppf - 1) * d) + d) / particles.length)z
+var anim = zip.file([`data/${datapack.namespace}/functions/${datapack.path}/anim.mcfunction`], anim_commands)
+var start = zip.file([`data/${datapack.namespace}/functions/${datapack.path}/start.mcfunction`], "#File Generated With Malik12tree's Particle Drawer.\n" + `scoreboard objectives add m_particledraw dummy\nscoreboard players add ${player} m_particledraw 0\nexecute unless score ${player} m_particledraw matches ${(ppf).toFixed()}.. run function ${datapack.namespace}:${datapack.path}/anim\nscoreboard players add ${player} m_particledraw 1\nexecute if score ${player} m_particledraw matches ${(ppf).toFixed()}.. run scoreboard players set ${player} m_particledraw 0`)
 
 
 
 //generate frames
 fix_ = 0
-for (let t = 0; t < ppf.toFixed(); t++) {
-  commands = ""
+for (let t = 0; t < ppf.toFixed() * 1.5; t++) {
+    commands = ""
   for (let i = 0; i < ppf_range.value; i++) {
-    // console.log(fix_)
-    commands += `particle ${particle_id.value} ^ ^${(pivot[1] - particles[fix_].y) / 100} ^${(particles[fix_].x - pivot[0]) / 100} ${particle_end.value}\n`
+    
+    if (particles[fix_]) {
+      commands += `particle ${particle_id.value} ^${(particles[fix_].x - pivot[0]) / 100} ^${(pivot[1] - particles[fix_].y) / 100} ^ ${particle_end.value}\n`
+    }
     fix_+= 1
   }
-  var file = framesf.file("frame" + t + ".mcfunction", commands)
+  if (commands !== "") {
+    var file = framesf.file("frame" + t + ".mcfunction", commands)
+  }
 }
+
 commands = ""
 anim_commands = ""
 }
@@ -632,7 +646,6 @@ function center_pivot(){
 let pivot = [0, canvas.height/2]
 let gridRes;
 let gr_s = document.getElementById('gr_s');
-gr_s.style.position = "relative"
 var pivotXlabel = document.getElementById('pivotXlabel');
 var pivotYlabel = document.getElementById('pivotYlabel');
 var pCount = document.getElementById('pCount');
@@ -681,11 +694,11 @@ context.font = "15px sans-serief" ;
 context.fillText("Y+ ⇧", pivot[0] + 5, pivot[1] - 5);
 context.fillText("Y - ⇩", pivot[0] + 5, pivot[1] + 15);
 
-context.fillText("⇨ X+", pivot[0] - 40, pivot[1] - 5);
-context.fillText("⇦ X -", pivot[0] - 40, pivot[1] + 15);
+context.fillText("⇨ Z+", pivot[0] - 40, pivot[1] - 5);
+context.fillText("⇦ Z -", pivot[0] - 40, pivot[1] + 15);
 
 if (grid_toggle_ == 1) {
-  gr_s.style.top = null;
+  gr_s.style.display = "inline-block";
   gridBtn.style.backgroundColor = 'hsl(0, 19%, 60%)'
   gridBtn.style.borderRadius = selected_border_radius 
   context.beginPath();
@@ -710,7 +723,7 @@ if (grid_toggle_ == 1) {
       }
   }
 } else{
-  gr_s.style.top = "100000px";
+  gr_s.style.display = "none";
   gridBtn.style.backgroundColor = null
   gridBtn.style.borderRadius = null
 }
@@ -741,8 +754,12 @@ ppf_value.max = particles.length
 if (ppf_value.value > particles.length||ppf_range.value > particles.length) {
   ppf_value.value = particles.length
   ppf_range.value = particles.length
+  if (particles.length === 0) {  
+    ppf_value.value = 1
+    ppf_range.value = 1
+  
+  }
 }
-
 
 if (Circle_br_selected === true) {
   circle_settings.style.display = "block";

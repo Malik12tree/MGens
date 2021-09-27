@@ -39,59 +39,68 @@
      <label id="gr_s">| Grid-Res: <input type="number" id="gridRes" value="20" min="10" max="200"></label> 
         </h5>
 </dev>
-
-<dev class="brush-settings">
+<div style="position: relative;bottom: 775px;left: 650px;width: 250px;height: 100%;" id="setting">
+    <dev class="brush-settings">
     
-    <h4 class="br-s">Brush Settings</h4>
-    <h5>Spacing: <input id="s-range" type="range" value="0" min="0" max="50"><input id="s-value" type="number" value="0" min="0" max="50" ></h5>
-    <div id="eraser-settings" style="display: none;">
-        <h5>Erase Radius:<input id="er-range" type="range" value="25" min="0" max="999" style="width: 30%;"><input id="er-value" type="number" value="25" min="0" max="999"></h5>
-    </div>
-    <dev id="arc_br_settings" class="arc_br_settings">
-        <h5>Circles:<input id="c-range" type="range" value="22" min="3" max="999"><input id="c-value" type="number" value="22" min="3" max="999"></h5>
-        <h5>Distance:<input id="d-range" type="range" value="140" min="40" max="200"><input id="d-value" type="number" value="140" min="40" max="200"></h5>
-        <h5>Angle:<input id="a-range" type="range" value="360" min="0" max="360"><input id="a-value" type="number" value="360" min="0" max="360"></h5>
-        <h5>Rotation:<input id="r-range" type="range" value="0" min="0" max="360"><input id="r-value" type="number" value="0" min="0" max="360"></h5>
+        <h4 class="br-s">Brush Settings</h4>
+        <h5>Spacing: <input id="s-range" type="range" value="0" min="0" max="50"><input id="s-value" type="number" value="0" min="0" max="50" ></h5>
+        <div id="eraser-settings" style="display: none;">
+            <h5>Erase Radius:<input id="er-range" type="range" value="25" min="0" max="999" style="width: 30%;"><input id="er-value" type="number" value="25" min="0" max="999"></h5>
+        </div>
+        <dev id="arc_br_settings" class="arc_br_settings">
+            <h5>Circles:<input id="c-range" type="range" value="22" min="3" max="999"><input id="c-value" type="number" value="22" min="3" max="999"></h5>
+            <h5>Distance:<input id="d-range" type="range" value="140" min="40" max="200"><input id="d-value" type="number" value="140" min="40" max="200"></h5>
+            <h5>Angle:<input id="a-range" type="range" value="360" min="0" max="360"><input id="a-value" type="number" value="360" min="0" max="360"></h5>
+            <h5>Rotation:<input id="r-range" type="range" value="0" min="0" max="360"><input id="r-value" type="number" value="0" min="0" max="360"></h5>
+        </dev>
+        <dev id="mBr-s">
+            <h5>Circles:<input id="cm-range" type="range" value="3" min="3" max="50"><input id="cm-value" type="number" value="3" min="3" max="50"></h5>
+            <h5>Max Radius:<input id="rm-range" type="range" value="40" min="40" max="100" style="width: 110px;"><input id="rm-value" type="number" value="40" min="40" max="100"></h5>
+        </dev>
+        <img src="../../../assets/reset.svg" title="Reset values" id="reset" onclick="reset()">
     </dev>
-    <dev id="mBr-s">
-        <h5>Circles:<input id="cm-range" type="range" value="3" min="3" max="50"><input id="cm-value" type="number" value="3" min="3" max="50"></h5>
-        <h5>Max Radius:<input id="rm-range" type="range" value="40" min="40" max="100" style="width: 110px;"><input id="rm-value" type="number" value="40" min="40" max="100"></h5>
+    
+    <dev class="export-settings" id="export-settings">
+        <h4 class="ex-s">Export Settings</h4>
+        <h5>Particle:</h5> 
+        <input type="text" list="particlesList" spellcheck="false" class="ptcl-id-input" id="ptcl-id-input" value="minecraft:flame">
+        <datalist id="particlesList">
+    
+        </datalist>
+        <input type="text" spellcheck="false" class="ptcl-input" id="ptcl-input" value="0 0 0 0 1 force @a">
+    
+        <h5>Animate: <input type="checkbox" id="animate" class="animate"></h5>
+    
+        <dev id="animation-settings" class="animation-settings">
+                <h5>Namespace:
+                    <input type="text" value="namespace" style="display: inline;width: 50%;height: 22px;font-size: 12px;top: -1px;padding: 3px;" id="namespace-inp">
+                </h5>
+            <h5>Path:
+                <input type="text" value="path" style="display: inline;width: 50%;height: 22px;font-size: 12px;left: 52px;padding: 3px;" id="path-inp">
+            </h5>
+    
+            <h5>Animation Type:<select class="anim-type" id="anim-type">
+                <option value="0-1">First To Last</option>
+                <option value="1-0">Last To Firse</option>
+                <!-- Comming Soon btw... -->
+                <!-- <option value="r-l">Right To Left</option>
+                <option value="l-r">Left To Right</option>
+                <option value="t-b">Top To Bottom</option>
+                <option value="b-t">Bottom To Top</option> -->
+            </select></h5>
+            <h5>Particles Per Frame:<input id="ppf-range" class="ppf-range" type="range" value="1" min="1" max="50"><input id="ppf-value" class="ppf-value" type="number" value="10" min="1" max="50" ></h5>
+            <h5 title="determines if the animation is display-ed by a fake player() or the entity executing the command(@s)">Global?<input type="checkbox" class="global" id="global"></h5>
+    
+            <h5 id="preview">Preview:<label class="switch">
+                <input type="checkbox" id="switch-preview">
+                <span class="slider round"></span>
+              </label></h5>
+        </dev>
+        <button onclick="download();" id="export" class="export" style="top: 5px;">Export</button>
+    
     </dev>
-    <img src="../../../assets/reset.svg" title="Reset values" id="reset" onclick="reset()">
-</dev>
+</div>
 
-<dev class="export-settings" id="export-settings">
-    <h4 class="ex-s">Export Settings</h4>
-    <h5>Particle:</h5> 
-    <input type="text" list="particlesList" spellcheck="false" class="ptcl-id-input" id="ptcl-id-input" value="minecraft:flame">
-    <datalist id="particlesList">
-
-    </datalist>
-    <input type="text" spellcheck="false" class="ptcl-input" id="ptcl-input" value="0 0 0 0 1 force @a">
-
-    <h5>Animate: <input type="checkbox" id="animate" class="animate"></h5>
-
-    <dev id="animation-settings" class="animation-settings">
-        <h5>Animation Type:<select class="anim-type" id="anim-type">
-            <option value="0-1">First To Last</option>
-            <option value="1-0">Last To Firse</option>
-            <!-- Comming Soon btw... -->
-            <!-- <option value="r-l">Right To Left</option>
-            <option value="l-r">Left To Right</option>
-            <option value="t-b">Top To Bottom</option>
-            <option value="b-t">Bottom To Top</option> -->
-        </select></h5>
-        <h5>Particles Per Frame:<input id="ppf-range" class="ppf-range" type="range" value="1" min="1" max="50"><input id="ppf-value" class="ppf-value" type="number" value="10" min="1" max="50" ></h5>
-        <h5 title="determines if the animation is display-ed by a fake player() or the entity executing the command(@s)">Global?<input type="checkbox" class="global" id="global"></h5>
-
-        <h5 id="preview">Preview:<label class="switch">
-            <input type="checkbox" id="switch-preview">
-            <span class="slider round"></span>
-          </label></h5>
-    </dev>
-    <button onclick="download();" id="export" class="export">Export</button>
-
-</dev>
 <h5 style="text-align: center;position: relative;">
     <button class="ytV" onclick="youtube();">Youtube Video</button>
 </h5>
@@ -111,7 +120,7 @@
             </div>
             </li>
             <div class="icons">
-                <a onclick="discord();"><img src="../../../assets/discord.svg"></a>
+                <a onclick="discord();"><img style="height: 70%;" src="../../../assets/discord.svg"></a>
             
                 <a onclick="window.open('https://www.youtube.com/channel/UCjq_vgJhxWz9iGS0fX6pF3Q', '_balnk')"><img src="../../../assets/yt.svg"></a>
     
