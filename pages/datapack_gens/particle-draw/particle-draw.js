@@ -130,8 +130,8 @@ let brush_radius = 10
 let particles = []
 
 let erasePos = {
-  x: 0,
-  y: 0
+  x: -100,
+  y: -100
 }
 let jitterR = 0;
 let jitterA = 0;

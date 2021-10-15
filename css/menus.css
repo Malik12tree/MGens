@@ -11,7 +11,6 @@
 }
 body {
     background-color: #566d66; 
-    overflow: auto;
     background-position: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -28,6 +27,7 @@ body {
     background-color: #293435;
     font-family: menus;
     font-size: 110%;
+    user-select: none;
 }
 .menus ul {
     list-style: none;
@@ -105,6 +105,9 @@ body {
     transform: rotate(180deg);
     transition: 0.2s ease-out;
 }
+:root{
+    --icon-size: 70%;
+}
 .icons{
     position: absolute;
     right: 10px;
@@ -113,14 +116,14 @@ body {
 }
 .icons img{
     position: relative;
-    height: 70%;
+    height: var(--icon-size);
     margin-right: 5px;
-    top: 15%;
+    top: calc( calc(100% - var(--icon-size)) / 2);
     filter: invert(15%);
     transition: filter 0.3s ease;
 }
 .icons img:hover{
-    filter: invert(50%);
+    filter: invert(20%);
     transition: filter 0.3s ease;
     cursor: pointer;
 

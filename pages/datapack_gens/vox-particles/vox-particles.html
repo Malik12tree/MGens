@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vox To Particles</title>
+    <link rel="shortcut icon" href="../../../assets/MDatapack.svg">
+
+    <link rel="stylesheet" href="vox-particles.css">
+    <link rel="stylesheet" href="../../../css/menus.css">
+
+
+</head>
+<body>
+<dev class="main-sec" id="main-s">
+    <h1 class="title">Vox To Particles</h1>
+
+    <h5 class="sub-sec">
+        <input type="file" id="upload" hidden>
+        <button id="upload-btn" onclick="upload.value = ''; upload.click(); uploadBtn.innerHTML = `Upload .vox`;">Upload .vox</button>
+        <p>
+        <input hidden type="color" id="holoCol" value="#9cd1f2">
+        </p>
+        <p>
+            <label style="position: relative;top: -5px;">Size: </label><input type="range" oninput="scaleVal.value = this.value" value="5" max="83" id="scaleRange"> <input oninput="scaleRange.value = this.value" type="number" id="scaleVal" value="5" max="83"> 
+        </p>
+        <button onclick="if(upload.value) download()">Download</button>
+    
+    </h5>
+</dev>
+
+    <dev class="menus">
+        <ul>
+            
+            <li><a href="../../../index.html">Home</a></li>
+            <li><a>Generators<img class= "dpgem" src="../../../assets/expand_more.svg"></a>
+            <div class="dp-gens">
+                <ul>
+                    <li><a href="../particle-draw/particle-draw.html">Particle Draw</a></li>
+                    <li><a href="../text-build/text-build.html">Text-TypeWriter-Build</a></li>
+                    <li><a href="../animated-build/animated-build.html">Animated Build</a></li>
+                    <li><a href="vox-particles.html">Vox To Particles</a></li>
+                </ul>
+            </div>
+            </li>
+
+            
+            <div class="icons">
+                <a onclick="discord();"><img src="../../../assets/discord.svg"></a>
+            
+                <a onclick="window.open('https://www.youtube.com/channel/UCjq_vgJhxWz9iGS0fX6pF3Q', '_balnk')"><img src="../../../assets/yt.svg"></a>
+    
+                <a onclick="window.open('https://github.com/Malik12tree/malik12tree.github.io', '_blank')"><img src="../../../assets/git.svg"></a>
+                
+            </div>
+
+        </ul>
+        
+    </dev>
+
+    <script src= "vox-particles.js"></script>
+    <script src="../../../js/vox.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="../../../js/FileSaver.min.js"></script>
+
+
+</body>
+</html>

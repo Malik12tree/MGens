@@ -13,7 +13,15 @@ function t() {
 function ab() {
     location.href = "pages/datapack_gens/animated-build/animated-build.html";
 }
+function vp() {
+    location.href = "pages/datapack_gens/vox-particles/vox-particles.html";
+}
 
+
+
+
+
+// JUST SOME FUN AND TESTING STUFF=>
 let obj = {};
 let chain = {
     a: "",
@@ -23,7 +31,7 @@ let cmd ={
     command: "say hi"
 }
 let objJson;
-function passe(numberOF) {
+function passengersChain(numberOF) {
     chain = {
         a: "",
     }
@@ -45,4 +53,10 @@ function passe(numberOF) {
     console.log(`summon ${cmd.id} ~ ~ ~` + objJson);
 }
 
+// console.log(getRandomInt(1, 1));
 
+// function getRandomInt(min, max) {
+//     min = Math.ceil(min);
+//     max = Math.floor(max);
+//     return Math.floor(Math.random() * (max - min + 1)) + min;
+// }

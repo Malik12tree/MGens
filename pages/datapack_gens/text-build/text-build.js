@@ -112,7 +112,8 @@ function download() {
     // } else{
     //      download_raw(zip);
     // }
-       
+    
+    //download_raw(zip);   
     download_tw(zip);
     zip.generateAsync({type:"blob"}).then(function(content) {
         // see FileSaver.js
@@ -120,17 +121,21 @@ function download() {
     });
 }
 
-// function download_raw(zip) {
-//     for (let q = 0; q < chars.length; q++) {
-//         for (let w = 0; w < chars_j[chars[q]].length; w+=2) {
-//             chars_j[chars[q]][w+1] = ` ${block_id.value}\n`
-//         }
-//         commands+= chars_j[chars[q]] + "\n"
-//     }
-//     zip.file("text-build.mcfunction", commands);
-    
-//     commands = "";
-// }
+function download_raw(zip) {
+    for (let i = 0; i < chars.length; i++) {
+        for (let f = 0; f < chars_j["charss"][chars[i]].length; f+=2) {
+            chars_j["charss"][chars[i]][f+1] = `${block_id.value}\n`
+        }
+        all=""
+        for (let k = 0; k < chars_j["charss"][chars[i]].length; k++) {
+            all+= chars_j["charss"][chars[i]][k];
+        }
+        commands+= all
+        console.log(commands)
+    }
+    zip.file("text-build.mcfunction", commands);
+    commands = "";
+}
 let textinfo = "";
 function download_tw(zip) {
     var cpf = chars.length / cpf_range.value;

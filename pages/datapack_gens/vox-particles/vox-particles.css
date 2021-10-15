@@ -1,0 +1,153 @@
+/* @font-face { font-family: minecraft; src: url('../../../assets/Minecraft.ttf'); }  */
+.main-sec{
+    position: fixed;
+    top: 100px;
+    left: 15%;
+    height: 100%;
+    background-color: rgb(78, 90, 90);
+    width: 70%;
+    box-shadow: 2px 5px 4px rgba(38, 42, 40, 0.5);
+    border-radius: 10px;
+}
+.main-sec h5{
+    text-align: center;
+    color: white;
+}
+input[type="range"]{
+    position: relative;
+    top: -2px;
+    cursor: pointer;    
+}
+input[type="number"]{
+    position: relative;
+    top: -4px;
+    width: 50px;
+    padding: 2px;
+    border-radius: 5px;
+    border-width: 0px;
+    border: 1px solid black;
+    background-color: hsl(50, 18%, 53%);
+    color: white;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+input[type="number"]:hover{
+    background-color: hsl(50, 7%, 51%);
+    transition: 0.3s ease;
+}
+input[type="checkbox"]{
+    position: relative;
+    top: 2.5px;
+    left: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    outline: none;
+}
+button{
+    padding: 7px;
+    color: white;
+    font-weight: 600;
+    background-color: hsl(50, 18%, 53%);
+    border: 2px solid rgb(90, 90, 90);
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+button:hover{
+    background-color: hsl(50, 26%, 59%);
+    color: rgb(228, 228, 228);
+    transition: 0.3s ease;
+}
+input[type="text"]{
+    position: relative;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: hsl(50, 18%, 53%);
+    color: white;
+    width: 70%;
+    margin-top: 5px;
+    overflow: auto;
+    padding: 10px;
+}
+.title{
+    font-family: monospace;
+    text-align: center;
+    color: white;
+    position: relative;
+    top: -40px;
+    background-color: rgb(62, 73, 68);
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+select{
+    position: relative;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: hsl(50, 18%, 53%);
+    color: white;
+    width: 25%;
+    top: 0px;
+    font-size: 75%;
+    padding: 5px;
+}
+textarea{
+    position: relative;
+    left: 25px;
+    min-width: 30%;
+    width: 70%;
+    min-height: 50px;
+    max-height: 100px; 
+    max-width: 90%;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: hsl(184, 18%, 53%);
+    color: white;
+    padding: 10px;
+}
+.toggle{
+    height: 30px;
+    padding: 5px;
+    width: 70px;
+    font-size: .8rem;
+    font-weight: 700;
+    background-color: hsl(126, 18%, 53%);
+    border: 1px solid rgb(25, 31, 25);
+}
+.toggle:hover{
+    background-color: hsl(126, 26%, 62%);
+}
+input[type="color"]{
+    /* border-bottom: 2px solid black; */
+    border-radius: 5px;
+    height: 30px;
+    /* box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5); */
+    width: 60px;
+    cursor: pointer;
+    background-color: hsl(184, 18%, 53%);
+    transition: background-color .3s ease;
+}
+input[type="color"]:hover{
+    background-color: hsl(184, 26%, 59%);
+    transition: background-color .3s ease;
+}
+.sub-sec{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    background: hsl(50, 26%, 50%);
+    position: relative;
+    width: 50%;
+    border: 2px solid rgb(24, 29, 25);
+    border-radius: 10px;
+    left: 25%;
+    padding: 20px;
+}
+.sub-sec p{
+    margin-top: 5px;
+}
