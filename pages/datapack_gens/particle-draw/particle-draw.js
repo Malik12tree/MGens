@@ -115,12 +115,14 @@ let isErasing = false;
 let isMultiDrawing = false;
 let isCircleDrawing = false;
 let isMovingPivot = false;
+let isMoving = false;
 
 let Brush_selected = true;
 let Eraser_selected = false;
 let Multi_br_selected = false;
 let Circle_br_selected = false;
 let pivot_tool_selected = false;
+let move_tool_selected = false;
 
 let x = 0;
 let y = 0;
@@ -209,6 +211,18 @@ window.addEventListener("keydown", function(e){
 canvas.addEventListener('mousedown', e => {
 x = e.offsetX;
 y = e.offsetY;
+if (move_tool_selected === true) {
+  isMoving = true;
+  for (let i = 0; i < particles.length; i++) {
+    if (getDistance(x, y, particles[i].x, particles[i].y) < particles[i].brush_radius + 5|| particles[i].moving === true){
+        particles[i].x = x
+        particles[i].y = y
+    }
+}
+} else {
+  isMoving = false;
+}
+
 if (Brush_selected === true) {
   var particle_click = new Particle(x, y, brush_radius, "#0f3a80");
   isDrawing = true;
@@ -275,7 +289,18 @@ if (pivot_tool_selected === true) {
 
 });
 canvas.addEventListener('mousemove', e => {
-if (isDrawing === true) {
+  if (isMoving === true) {
+    x = e.offsetX;
+    y = e.offsetY;
+    for (let i = 0; i < particles.length; i++) {
+      if (getDistance(x, y, particles[i].x, particles[i].y) < particles[i].brush_radius + 5|| particles[i].moving === true){
+          particles[i].x = x
+          particles[i].y = y
+          particles[i].moving = true
+        } 
+    }
+}
+  if (isDrawing === true) {
   x = e.offsetX;
   y = e.offsetY;
   brush_spacing +=1
@@ -335,6 +360,10 @@ window.addEventListener('mouseup', e => {
   isErasing = false;
   isMultiDrawing = false;
   isMovingPivot = false;
+  isMoving = false;
+  for (let i = 0; i < particles.length; i++) {
+    particles[i].moving = false
+}
 });
 //getdist
 function getDistance(x1, y1, x2, y2) {
@@ -348,6 +377,7 @@ function getDistance(x1, y1, x2, y2) {
 function Particle(x, y, brush_radius, color) {
 this.x = x;
 this.y = y;
+this.moving = false;
 this.color = color;
 this.brush_radius = brush_radius;
 
@@ -371,6 +401,7 @@ var multi_br = document.getElementById('multi-br');
 var circle_br = document.getElementById('arc-br');
 var clear = document.getElementById('clear');
 var pivot_tool = document.getElementById('pivot_tool');
+var move_tool = document.getElementById('move_tool');
 
 brush.style.backgroundColor = "rgb(119, 163, 159)"
 brush.style.borderRadius = "7px"
@@ -422,14 +453,25 @@ function pivot_tool_select() {
   pivot_tool.style.borderRadius = selected_border_radius
 
 }
+function move_tool_select() {
+  deselect_all();
+  move_tool_selected = true;
+  canvas.style.cursor = "url(../../../assets/move.svg) 12.5 12.5, move"
+  move_tool.style.backgroundColor = selected_BGcolor
+  move_tool.style.borderRadius = selected_border_radius
+}
+
 
 function deselect_all(){
   document.getElementById('eraser-settings').style.display = "none"
+  move_tool_selected = false;
   pivot_tool_selected = false;
   Brush_selected = false;
   Eraser_selected = false;
   Multi_br_selected = false;
   Circle_br_selected = false;
+  move_tool.style.backgroundColor = null;
+  move_tool.style.borderRadius = null;
   pivot_tool.style.backgroundColor = null;
   pivot_tool.style.borderRadius = null;
   circle_br.style.backgroundColor = null
@@ -676,7 +718,6 @@ colorScale = (ppf_range.value / 2);
 gridRes = document.getElementById('gridRes').value * 1;
 context.clearRect(0 ,0 , canvas.width, canvas.height);
 
-
 context.beginPath();
 context.lineWidth = 1;
 context.moveTo(pivot[0], 0);
@@ -734,6 +775,14 @@ if (grid_toggle_ == 1) {
 //update particles
 
 particles.forEach((partile, index) => {
+  if (particles.find(e => (e.x === partile.x && e.y === partile.y)) !== partile) {
+    //found intersection
+    particles.splice(index, 1)
+  }
+})
+
+
+particles.forEach((partile, index) => {
   partile.color = "#0f3a80"
   if (previewed === true && animate_cb.checked === true && anim_type.value === "0-1"||previewed === true && animate_cb.checked === true && anim_type.value === "1-0") {
   if (anim_type.value === "0-1") {
@@ -743,7 +792,9 @@ particles.forEach((partile, index) => {
      partile.color = `rgb(${0 + (index / colorScale)}%, ${255 - (index / colorScale)}%, 0%)`
     }
   }
+  
   partile.update()
+  
    
 })
 

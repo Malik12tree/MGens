@@ -400,7 +400,7 @@ sub-sections: hsl(50, 26%, 50%)
 .pinfo{
     position: relative;
     left: 12px;
-    top: -320px;
+    top: -345px;
     color: rgb(204, 255, 231);
 }
 .pinfo h5{
@@ -439,7 +439,7 @@ sub-sections: hsl(50, 26%, 50%)
 .ytV{
     padding: .5em 1em;
     position: relative;
-    top: -925px;
+    top: -935px;
     cursor: pointer;
     color: white;
     background-color: rgba(62, 98, 109, 0.7);
