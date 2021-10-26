@@ -153,6 +153,9 @@ window.addEventListener("keydown", function(e){
     if (event.key == "b"|| event.key == "B") {
       brush_select();
     }
+    if (event.key == "g"|| event.key == "g") {
+      move_tool_select()
+    }
     if (event.key == "e"|| event.key == "E") {
       eraser_select();
     }
@@ -288,6 +291,16 @@ if (pivot_tool_selected === true) {
 }
 
 });
+/*
+let testBtn = document.createElement("button");
+testBtn.innerHTML = "test";
+testBtn.onclick = () => {
+    console.log("test");
+};
+$("#project .button_bar")[0].innerHTML+= "&nbsp"; //this just to add some margin between btns.
+$("#project .button_bar")[0].appendChild(testBtn);
+*/
+
 canvas.addEventListener('mousemove', e => {
   if (isMoving === true) {
     x = e.offsetX;
