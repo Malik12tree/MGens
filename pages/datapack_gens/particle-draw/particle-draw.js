@@ -252,7 +252,7 @@ if (Eraser_selected === true) {
   isMovingPivot = false;
   isMultiDrawing = false;
 } else{
-  isErasing = false;
+  isErasing = false;  
 }
 
 
@@ -405,7 +405,8 @@ context.fill();
 }
 }
 
-var selected_BGcolor = "rgb(119, 163, 159)"
+// var selected_BGcolor = "rgb(119, 163, 159)"
+var selected_BGcolor = "var(--p-Tbar-hov)"
 var selected_border_radius = "7px"
 
 var brush = document.getElementById('brush');
@@ -416,7 +417,7 @@ var clear = document.getElementById('clear');
 var pivot_tool = document.getElementById('pivot_tool');
 var move_tool = document.getElementById('move_tool');
 
-brush.style.backgroundColor = "rgb(119, 163, 159)"
+brush.style.backgroundColor = "var(--p-Tbar-hov)"
 brush.style.borderRadius = "7px"
 
 function brush_select() {
