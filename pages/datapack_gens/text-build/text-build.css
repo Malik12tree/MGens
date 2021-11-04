@@ -5,14 +5,14 @@
     top: 100px;
     left: 15%;
     height: 100%;
-    background-color: rgb(78, 90, 90);
+    background-color: var(--main-s);
     width: 70%;
     box-shadow: 2px 5px 4px rgba(38, 42, 40, 0.5);
     border-radius: 10px;
 }
 .main-sec h5{
     text-align: center;
-    color: white;
+    color: var(--text-col);
 }
 .main-sec input[type="range"]{
     position: relative;
@@ -29,13 +29,13 @@
     border-radius: 5px;
     border-width: 0px;
     border: 1px solid black;
-    background-color: hsl(50, 18%, 53%);
-    color: white;
+    background-color: var(--main-inps);
+    color: var(--text-col);
     font-weight: 600;
     transition: 0.3s ease;
 }
 .main-sec input[type="number"]:hover{
-    background-color: hsl(50, 7%, 51%);
+    background-color: var(--num-inps-hov);
     transition: 0.3s ease;
 }
 .main-sec input[type="checkbox"]{
@@ -50,9 +50,9 @@
 }
 button{
     padding: 7px;
-    color: white;
+    color: var(--text-col);
     font-weight: 600;
-    background-color: hsl(50, 18%, 53%);
+    background-color: var(--main-inps);
     border: 2px solid rgb(90, 90, 90);
     border-radius: 5px;
     position: relative;
@@ -61,7 +61,7 @@ button{
     transition: 0.3s ease;
 }
 button:hover{
-    background-color: hsl(50, 26%, 59%);
+    background-color: var(--main-inps-hov);
     color: rgb(228, 228, 228);
     transition: 0.3s ease;
 }
@@ -70,8 +70,8 @@ button:hover{
     height: 25px;
     border-radius: 5px;
     border: 1px solid black;
-    background-color: hsl(50, 18%, 53%);
-    color: white;
+    background-color: var(--main-inps);
+    color: var(--text-col);
     font-weight: 800;
     font-family: cursive;
     width: 70%;
@@ -84,14 +84,14 @@ button:hover{
     padding: 10px;
     /* height: 200px; */
     width: 50%;
-    background-color: hsl(50, 26%, 50%);
+    background-color: var(--sub-sec);
     border-radius: 10px;
     border: 2px solid hsl(0, 0%, 20%) ;
     box-shadow: 1px 2px 3px hsla(0, 0%, 0%, 0.15);
 }
 #typewriter-sec{
     /* display: none; */
-    background-color: rgb(179, 172, 78);
+    background-color: var(--sub-sub-sec);
     border-radius: 5px;
     padding: 10px;
     border: 2px solid rgba(36, 36, 36, 0.7);
@@ -111,10 +111,10 @@ button:hover{
 .tb{
     font-family: monospace;
     text-align: center;
-    color: white;
+    color: var(--text-col);
     position: relative;
     top: -40px;
-    background-color: rgb(62, 73, 68);
+    background-color: var(--title);;
     border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
@@ -124,12 +124,12 @@ button:hover{
 .tb_info{
     font-family: monospace;
     text-align: center;
-    color: white;
+    color: var(--text-col);
     position: relative;
     left: 360px;
     top: -60px;
     max-width: 500px;
-    background-color: rgb(62, 73, 68);
+    background-color: var(--title);;
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -142,9 +142,9 @@ button:hover{
     left: 10px;
     font-size: .7rem;
     font-weight: 700;
-    background-color: hsl(126, 18%, 53%);
+    background-color: var(--toggle);
     border: 1px solid rgb(25, 31, 25);
 }
 .toggle:hover{
-    background-color: hsl(126, 26%, 62%);
+    background-color: var(--toggle-hov);
 }
