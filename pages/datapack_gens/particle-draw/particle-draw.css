@@ -8,7 +8,7 @@ body{
     left: 15%;
     width: 70%;
     height: 100%;
-    background-color: rgb(78, 90, 90);
+    background-color: var(--main-s);
     box-shadow: 2px 5px 4px rgba(38, 42, 40, 0.5);
     border-radius: 10px;
 
@@ -29,11 +29,11 @@ body{
 .pd {
     font-family: monospace;
     text-align: center;
-    color: white;
+    color: var(--text-col);
     position: relative;
     top: -40px;
 
-    background-color: rgb(62, 73, 68);
+    background-color: var(--title);
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -43,7 +43,7 @@ body{
 .pd_info{
     font-family: monospace;
     text-align: center;
-    color: white;
+    color: var(--text-col);
     position: relative;
     left: 220px;
     top: -10%;
@@ -62,16 +62,15 @@ body{
     height: 180px;
     top: 10px;
     padding-bottom: 30px;
-    background-color: rgb(52, 59, 55);
     border-radius: 5px;
     width: 250px;
-    background-color: rgb(98, 119, 105);
+    background-color: var(--p-BRsettings);
     box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.2); 
     border: 2.5px solid rgb(38, 42, 40);
 }
 .br-s{
     text-align: center;
-    background-color: rgb(156, 248, 186);
+    background-color: var(--p-BRsettings-t);
     border-radius: 5px;
     position: relative;
     top: -2px;
@@ -83,7 +82,7 @@ body{
 
 /*www.urmom.com*/
 .brush-settings h5{
-    color: white;
+    color: var(--text-col);
     padding-left: 10px;
 }
 .brush-settings input[type="range"]{
@@ -100,13 +99,13 @@ body{
     border-radius: 5px;
     border-width: 0px;
     border: 1px solid black;
-    background-color: hsl(50, 18%, 53%);
-    color: white;
+    background-color: var(--main-inps);
+    color: var(--text-col);
     font-weight: 600;
     transition: 0.3s ease;
 }
 .brush-settings input[type="number"]:hover{
-    background-color: hsl(50, 26%, 59%);
+    background-color: var(--main-inps-hov);
     transition: 0.3s ease;
 }
 
@@ -119,7 +118,7 @@ body{
     position: relative;
     width: 27.5px;
     height: 27.5px;
-    background-color: rgb(103, 124, 122);
+    background-color: var(--p-Tbar);
     border-radius: 5px;
     border: 2px solid black;
     transition: 0.2s ease;
@@ -127,28 +126,28 @@ body{
     top: -20px;
 }
 .bar h5:hover{
-    background-color: rgb(119, 163, 159);
+    background-color: var(--p-Tbar-hov);
     border-radius: 7px;
     transition: 0.2s ease;
     
 }
 .export-settings{
     position: absolute;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-y: auto;
+    overflow-x: auto;
     top: 205px;
     height: 300px;
     border-radius: 5px;
-    width: 265px;
+    width: 254px;
     padding-bottom: 10px;
     /* height: 200px; */
-    background-color: hsl(51, 10%, 43%);
+    background-color: var(--p-export);
     box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.2); 
     border: 2.5px solid rgb(38, 42, 40);
 }
 .ex-s{
     text-align: center;
-    background-color: hsl(51, 87%, 79%);
+    background-color: var(--p-export-t);
     border-radius: 5px;
     position: relative;
     top: -2px;
@@ -159,7 +158,7 @@ body{
     
 }
 .export-settings h5{
-    color: white;
+    color: var(--text-col);
     padding-left: 10px;
     font-size: .8em;
 }
@@ -171,14 +170,14 @@ body{
     height: 25px;
     border-radius: 5px;
     border: 1px solid black;
-    background-color: hsl(50, 18%, 53%);
-    color: white;
+    background-color: var(--main-inps);
+    color: var(--text-col);
     font-weight: 400;
     font-size: 1em;
     
 }
 .ptcl-input:hover{
-    background-color: hsl(50, 26%, 59%);
+    background-color: var(--main-inps-hov);
 }
 .export-settings input[type="text"]{
     position: relative;
@@ -187,8 +186,8 @@ body{
     height: 25px;
     border-radius: 3px;
     border: 1px solid black;
-    background-color: hsl(50, 18%, 53%);
-    color: white;
+    background-color: var(--main-inps);
+    color: var(--text-col);
     font-weight: 400;
     font-size: 1em;
     display: flex;
@@ -196,7 +195,7 @@ body{
     resize: both;
 }
 .ptcl-id-input:hover{
-    background-color: hsl(50, 26%, 59%);
+    background-color: var(--main-inps-hov);
 }
 .animate{
     position: relative;
@@ -212,15 +211,15 @@ body{
 .anim-type{
     padding: 2.5px;
     position: relative;
-    color: white;
-    background-color: hsl(50, 18%, 53%);
+    color: var(--text-col);
+    background-color: var(--main-inps);
     font-weight: 600;
     cursor: pointer;
     border-radius: 5px;
     border: 0.1px solid black;
 }
 .anim-type:hover{
-    background-color: hsl(50, 26%, 59%);
+    background-color: var(--main-inps-hov);
 }
 .animation-settings{
     display: none;
@@ -230,13 +229,13 @@ body{
     position: relative;
     left: 10px;
     padding: 5px;
-    background-color: hsl(50, 26%, 50%);
+    background-color: var(--sub-sec);
 }
 .export{
     padding: 7px;
-    color: white;
+    color: var(--text-col);
     font-weight: 600;
-    background-color: hsl(50, 18%, 53%);
+    background-color: var(--main-inps);
     border: 2px solid rgb(90, 90, 90);
     border-radius: 5px;
     position: relative;
@@ -244,7 +243,7 @@ body{
     cursor: pointer;
 }
 .export:hover{
-    background-color: hsl(50, 26%, 59%);
+    background-color: var(--main-inps-hov);
 }
 .ppf-value{
     position: relative;
@@ -254,12 +253,12 @@ body{
     border-width: 0px;
     top: -1px;
     border: 1px solid black;
-    background-color: hsl(50, 18%, 53%);
-    color: white;
+    background-color: var(--main-inps);
+    color: var(--text-col);
     font-weight: 600;
 }
 .ppf-value:hover{
-    background-color: hsl(50, 26%, 59%);
+    background-color: var(--main-inps-hov);
 }
 .ppf-range{
     position: relative;
@@ -295,7 +294,7 @@ sub-sections: hsl(50, 26%, 50%)
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: hsl(50, 18%, 53%);
+    background-color: var(--main-inps);
     border: 1px solid rgb(41, 41, 41);
     -webkit-transition: .4s;
     transition: .4s;
@@ -309,7 +308,7 @@ sub-sections: hsl(50, 26%, 50%)
     top: 1px;
     left: 3px;
     bottom: 1.25px;
-    background-color: white;
+    background-color: var(--text-col);
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -385,14 +384,14 @@ sub-sections: hsl(50, 26%, 50%)
     position: relative;
     width: 27.5px;
     height: 27.5px;
-    background-color: hsl(0, 9%, 50%);
+    background-color: var(--p-Abar);
     border-radius: 5px;
     border: 2px solid black;
     transition: 0.2s ease;
     cursor: pointer;
 }
 .action-bar h5:hover{
-    background-color: hsl(0, 19%, 60%);
+    background-color: var(--p-Abar-hov);
     border-radius: 7px;
     transition: 0.2s ease;
     
@@ -401,12 +400,12 @@ sub-sections: hsl(50, 26%, 50%)
     position: relative;
     left: 12px;
     top: -345px;
-    color: rgb(204, 255, 231);
+    color: var(--p-Ibar-txt);
 }
 .pinfo h5{
     font-weight: 600;
     border-radius: 5px;
-    background-color: rgb(63, 117, 117);
+    background-color: var(--p-Ibar);
     border: .17em solid black;
     width: 600px;
     padding: 5px;
@@ -426,7 +425,7 @@ sub-sections: hsl(50, 26%, 50%)
     border-width: 0px;
     border: 1px solid black;
     background-color: hsl(184, 18%, 53%);
-    color: white;
+    color: var(--text-col);
     font-weight: 600;
     height: 19px;
     transition: 0.3s ease;
@@ -441,15 +440,15 @@ sub-sections: hsl(50, 26%, 50%)
     position: relative;
     top: -935px;
     cursor: pointer;
-    color: white;
-    background-color: rgba(62, 98, 109, 0.7);
+    color: var(--text-col);
+    background-color: var(--YT);
     border-radius: 3px;
     border: 2px solid rgba(31, 0, 0, 0.7);
     transition: 0.3s ease;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .ytV:hover{
-    background-color: #75ada1;
+    background-color: var(--YT-hov);
     border-radius: 1px;
     transition: 0.3s ease;
     color: rgb(255, 219, 219);
@@ -459,8 +458,8 @@ select{
     height: 25px;
     border-radius: 5px;
     border: 1px solid black;
-    background-color: hsl(50, 18%, 53%);
-    color: white;
+    background-color: var(--main-inps);
+    color: var(--text-col);
     width: 25%;
     top: 0px;
     font-size: 95%;
