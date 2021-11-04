@@ -4,14 +4,14 @@
     top: 100px;
     left: 15%;
     height: 100%;
-    background-color: rgb(78, 90, 90);
+    background-color: var(--main-s);
     width: 70%;
     box-shadow: 2px 5px 4px rgba(38, 42, 40, 0.5);
     border-radius: 10px;
 }
 .main-sec h5{
     text-align: center;
-    color: white;
+    color: var(--text-col);
 }
 input[type="range"]{
     position: relative;
@@ -26,13 +26,13 @@ input[type="number"]{
     border-radius: 5px;
     border-width: 0px;
     border: 1px solid black;
-    background-color: hsl(50, 18%, 53%);
-    color: white;
+    background-color: var(--main-inps);
+    color: var(--text-col);
     font-weight: 600;
     transition: 0.3s ease;
 }
 input[type="number"]:hover{
-    background-color: hsl(50, 7%, 51%);
+    background-color: var(--num-inps-hov);
     transition: 0.3s ease;
 }
 input[type="checkbox"]{
@@ -47,9 +47,9 @@ input[type="checkbox"]{
 }
 button{
     padding: 7px;
-    color: white;
+    color: var(--text-col);
     font-weight: 600;
-    background-color: hsl(50, 18%, 53%);
+    background-color: var(--main-inps);
     border: 2px solid rgb(90, 90, 90);
     border-radius: 5px;
     position: relative;
@@ -57,7 +57,7 @@ button{
     transition: 0.3s ease;
 }
 button:hover{
-    background-color: hsl(50, 26%, 59%);
+    background-color: var(--main-inps-hov);
     color: rgb(228, 228, 228);
     transition: 0.3s ease;
 }
@@ -66,8 +66,8 @@ input[type="text"]{
     height: 25px;
     border-radius: 5px;
     border: 1px solid black;
-    background-color: hsl(50, 18%, 53%);
-    color: white;
+    background-color: var(--main-inps);
+    color: var(--text-col);
     width: 70%;
     margin-top: 5px;
     overflow: auto;
@@ -76,10 +76,10 @@ input[type="text"]{
 .title{
     font-family: monospace;
     text-align: center;
-    color: white;
+    color: var(--text-col);
     position: relative;
     top: -40px;
-    background-color: rgb(62, 73, 68);
+    background-color: var(--title);;
     border-radius: 5px;
     padding-left: 5px;
     padding-right: 5px;
@@ -91,8 +91,8 @@ select{
     height: 25px;
     border-radius: 5px;
     border: 1px solid black;
-    background-color: hsl(50, 18%, 53%);
-    color: white;
+    background-color: var(--main-inps);
+    color: var(--text-col);
     width: 25%;
     top: 0px;
     font-size: 75%;
@@ -109,7 +109,7 @@ textarea{
     border-radius: 5px;
     border: 1px solid black;
     background-color: hsl(184, 18%, 53%);
-    color: white;
+    color: var(--text-col);
     padding: 10px;
 }
 .toggle{
@@ -140,7 +140,7 @@ input[type="color"]:hover{
 }
 .sub-sec{
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-    background: hsl(50, 26%, 50%);
+    background: var(--sub-sec);
     position: relative;
     width: 50%;
     border: 2px solid rgb(24, 29, 25);
