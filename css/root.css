@@ -1,0 +1,32 @@
+:root{
+    /*  ALL  */
+    --bg-col: hsl(162, 12%, 38%); /* bgs col */
+    --main-s: hsl(180, 7%, 33%); /* main ss */
+    --text-col: hsl(0, 0%, 100%); /* main text col */
+    --main-inps: hsl(50, 18%, 53%); /* main inps */
+    --main-inps-hov: hsl(50, 26%, 59%); /* btns hov */
+    --num-inps-hov: hsl(50, 7%, 51%); /* nums hov */
+    --sub-sec: hsl(50, 26%, 50%); /* sub-sec */
+    --sub-sub-sec: hsl(56, 40%, 50%); /* sub-sub-sec */
+    --YT: rgba(62, 98, 109, 0.7);
+    --YT-hov: #75ada1;
+    --toggle: hsl(126, 18%, 53%);
+    --toggle-hov: hsl(126, 26%, 62%);
+    --title: rgb(62, 73, 68);
+    /*  PARTICLE DRAW  */
+    --p-export: hsl(51, 10%, 43%);;
+    --p-export-t: hsl(51, 87%, 79%);
+    --p-BRsettings: rgb(98, 119, 105);
+    --p-BRsettings-t: rgb(156, 248, 186);
+    --p-Ibar: rgb(63, 117, 117);
+    --p-Ibar-txt: rgb(204, 255, 231);
+    --p-Abar: hsl(0, 9%, 50%);
+    --p-Tbar: rgb(103, 124, 122);
+    --p-Abar-hov: hsl(0, 19%, 60%);
+    --p-Tbar-hov: rgb(119, 163, 159);
+    /*  MENUS  */
+    --menuMain: rgb(78, 90, 90);
+    --menu-hov: rgb(39, 194, 199);
+    --menuDD: rgba(78, 83, 90, 0.65);
+    --icon-size: 70%;
+}
