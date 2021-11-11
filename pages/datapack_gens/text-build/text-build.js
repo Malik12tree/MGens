@@ -138,6 +138,7 @@ function download_raw(zip) {
 }
 let textinfo = "";
 function download_tw(zip) {
+    let indexSpace = 0;
     var cpf = chars.length / cpf_range.value;
 
    zip.file("pack.mcmeta", `{\n    "pack": {\n        "description": "Text Build",\n        "pack_format": 6\n    }\n}\n`);
@@ -174,7 +175,11 @@ function download_tw(zip) {
         
         char_file = chars_f.file(`${chars_j["names"][chars[i]]}` + ".mcfunction", all);   
     }
-        anim_commands+= `execute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * i) + i) / chars.length) * (delay * ST)} positioned ^ ^ ^${-((7 + (cs_value.value * 1)) * i)} run function tb:letters/${chars_j["names"][chars[i]]}\n`
+    
+    console.log(indexSpace + (i * ((cs_value.value * 1) + 1)), chars[i]);
+    indexSpace+= chars_j["size"][chars[i]] + (i * 0); // te!st
+    
+    anim_commands+= `execute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * i) + i) / chars.length) * (delay * ST)} positioned ^ ^ ^${-((7 + (cs_value.value * 1)) * i)} run function tb:letters/${chars_j["names"][chars[i]]}\n`
     
     //((chars_j["size"][chars[i]] * i) + (chars_j["size"][chars[i - 1]] * i) / 10) - chars_j["size"][chars[0]]
 
@@ -188,7 +193,6 @@ function download_tw(zip) {
 ║╔╝
 ╚╬╗
  ╚╝
- -
 */
 
 function animate() {
