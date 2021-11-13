@@ -25,6 +25,7 @@ sub-sections: hsl(50, 26%, 50%)
     color: #cefff3;
     position: relative;
     top: 10px;
+    text-shadow: 2px 2px 2px #5d857b;
     font-family: carter;
 }
 .main-sech sub{
