@@ -119,11 +119,18 @@ body {
     margin-right: 5px;
     top: calc( calc(100% - var(--icon-size)) / 2);
     filter: invert(15%);
-    transition: filter 0.3s ease;
+    transition: 0.3s ease;
 }
 .icons img:hover{
     filter: invert(20%);
-    transition: filter 0.3s ease;
+    transform: scale(110%);
+    transition: 0.3s ease;
     cursor: pointer;
 
+}
+.menuIco{
+    background: red;
+    width: 25px;
+    height: 25px;
+    display: inline-block;  
 }
