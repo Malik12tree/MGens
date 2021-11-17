@@ -179,9 +179,6 @@ function download_tw(zip) {
     
     anim_commands+= `execute if score ${fake_player} m_tb matches ${Math.trunc((((cpf - 1) * i) + i) / chars.length) * (delay * ST)} positioned ^ ^ ^${-indexSpace} run function tb:letters/${chars_j["names"][chars[i]]}\n`
     
-    //((chars_j["size"][chars[i]] * i) + (chars_j["size"][chars[i - 1]] * i) / 10) - chars_j["size"][chars[0]]
-
-
     }
     var animate_f = fn_tb.file("animate.mcfunction", anim_commands)
 }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Midi To Noteblock Notes</title>
+    <link rel="shortcut icon" href="../../../assets/MDatapack.svg">
+
+    <link rel="stylesheet" href="../../../css/root.css">
+    <link rel="stylesheet" href="midi-to-noteblocks.css">
+    <link rel="stylesheet" href="../../../css/menus.css">
+
+
+</head>
+<body>
+<dev class="main-sec" id="main-s">
+    <h1 class="title">Midi To Noteblocks Notes</h1>
+    <button class="ytV" id="ytBTN">Youtube Video</button>
+
+    <h5 class="sub-sec">
+        <div class="midiworld">
+            <a class="mw" onclick="window.open('https://www.bearaudiotool.com/mp3-to-midi', '_blank')">Covert .mp3 to .midi/.mid</a>
+             <div class="MWimgCont" onclick="window.open('https://www.bearaudiotool.com/mp3-to-midi', '_blank')">
+                <img src="../../../assets/open.svg" style="width: 100%;filter: saturate(100%),brightness(100%) , hue-rotate(50%);">
+            </div>
+            <br>
+            <i>(I dont recommend converting)</i>
+        </div>
+        <div class="midiworld">
+            <a class="mw" onclick="window.open('https://www.midiworld.com', '_blank')">Browse Midi Files</a>
+            <div class="MWimgCont" onclick="window.open('https://www.midiworld.com', '_blank')">
+                <img src="../../../assets/open.svg" style="width: 100%;filter: saturate(100%),brightness(100%) , hue-rotate(50%);">
+            </div>
+        </div>
+        <br>
+        <button onclick="upload.click()">Upload</button>
+        <input hidden type="file" id="upload" accept=".midi, .mid">
+        <br>
+        <i>I recommend using <u>`Detect`</u> as the "instrument" type for its functionality of choosing the real instrument for each note. unless ur using a converted midi, use a constant instrument since mide converters only converts them into paino instruments</i>
+        <div class="cmdsettings">
+            <p>Instrument: <select id="instrument">
+            <option value="detect">DETECT ( BEST )</option>
+            <option value="block.note_block.banjo">banjo ( hay bale )</option>
+            <option value="block.note_block.bass">bass ( wood )</option>
+            <option value="block.note_block.basedrum">bass drum ( stone )</option>
+            <option value="block.note_block.bell">bell ( gold block )</option>
+            <option value="block.note_block.bit">bit ( emerald block )</option>
+            <option value="block.note_block.chime">chime ( packed ice )</option>
+            <option value="block.note_block.cow_bell">cow_bell ( soul sand )</option>
+            <option value="block.note_block.didgeridoo">didgeridoo ( pumpkin )</option>
+            <option value="block.note_block.flute">flute ( clay )</option>
+            <option value="block.note_block.guitar">guitar ( wool )</option>
+            <option value="block.note_block.harp">harp ( any other block )</option>
+            <option value="block.note_block.hat">hat ( glass )</option>
+            <option value="block.note_block.iron_xylophone">iron_xylophone ( iron block )</option>
+            <option value="block.note_block.pling">pling ( glowstone )</option>
+            <option value="block.note_block.snare">snare ( sand )</option>
+            <option value="block.note_block.xylophone">xylophone ( bone block )</option></select></p>
+            
+            <p>Initialize Function: <input type="text" value="init" id="initF"></p>
+            <p>Tick Function: <input type="text" value="main" id="mainF"></p>
+            <div class="lineSep"></div>
+            <p>Namespace: <input type="text" value="namespace" id="namespaceF"></p>
+            <p>Path: <input type="text" placeholder="to/path" id="pathF"></p>
+            <p></p>
+            <div class="lineSep" style="top: 2.5px;"></div>
+            <p>Note Limit Per Tick: <input type="number" value="20" id="noteLPF"></p>
+        </div>
+        <br>
+        <button onclick="download()">Download</button>
+        <br>
+        <i id="info"></i>
+    </h5>
+</dev>
+
+    <dev class="menus">
+        <ul>
+            
+            <li><a href="../../../index.html">Home</a></li>
+            <li><a>Generators<img class= "dpgem" src="../../../assets/expand_more.svg"></a>
+            <div class="dp-gens">
+                <ul>
+                    <li><a href="../particle-draw/particle-draw.html">Particle Draw</a></li>
+                    <li><a href="../text-build/text-build.html">Text-TypeWriter-Build</a></li>
+                    <li><a href="../animated-build/animated-build.html">Animated Build</a></li>
+                    <li><a href="../vox-particles/vox-particles.html">Vox To Particles</a></li>
+                </ul>
+            </div>
+            </li>
+
+            
+            <div class="icons">
+                <a onclick="discord();"><img src="../../../assets/discord.svg"></a>
+            
+                <a onclick="window.open('https://www.youtube.com/channel/UCjq_vgJhxWz9iGS0fX6pF3Q', '_balnk')"><img src="../../../assets/yt.svg"></a>
+    
+                <a onclick="window.open('https://github.com/Malik12tree/malik12tree.github.io', '_blank')"><img src="../../../assets/git.svg"></a>
+                
+            </div>
+            
+        </ul>
+        
+    </dev>
+
+    <script>const prefix = "../"</script>
+    <script src="../../../m_js/menus.js"></script>
+
+    <script src="https://unpkg.com/@tonejs/midi"></script>
+    <script src= "midi-to-noteblocks.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="../../../js/FileSaver.min.js"></script>
+
+
+</body>
+</html>

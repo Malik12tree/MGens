@@ -1,0 +1,12 @@
+{
+    "electric piano 1": "block.note_block.pling",
+    "electric piano 2": "block.note_block.pling",
+    
+    "marimba": "block.note_block.iron_xylophone",
+    "xylophone": "block.note_block.xylophone",
+    "tubular bells": "block.note_block.cow_bell",
+    
+    "tinkle bell": "block.note_block.cow_bell",
+    "woodblock": "block.note_block.hat",
+    "reverse cymbal": "block.note_block.basedrum"
+}

@@ -1,0 +1,192 @@
+/* @font-face { font-family: minecraft; src: url('../../../assets/Minecraft.ttf'); }  */
+.main-sec{
+    position: fixed;
+    top: 100px;
+    left: 15%;
+    height: 100%;
+    background-color: var(--main-s);
+    width: 70%;
+    box-shadow: 2px 5px 4px rgba(38, 42, 40, 0.5);
+    border-radius: 10px;
+}
+.main-sec h5{
+    text-align: center;
+    color: var(--text-col);
+}
+input[type="range"]{
+    position: relative;
+    top: 2px;
+    left: 10px;
+    cursor: pointer;    
+}
+input[type="number"]{
+    position: relative;
+    left: 12px;
+    width: 40px;
+    padding: 2px;
+    border-radius: 5px;
+    border-width: 0px;
+    border: 1px solid black;
+    background-color: var(--main-inps);
+    color: var(--text-col);
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+input[type="number"]:hover{
+    background-color: var(--num-inps-hov);
+    transition: 0.3s ease;
+}
+input[type="checkbox"]{
+    position: relative;
+    top: 2.5px;
+    left: 5px;
+    border: 1px solid black;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    outline: none;
+}
+button{
+    padding: 7px;
+    color: var(--text-col);
+    font-weight: 600;
+    background-color: var(--main-inps);
+    border: 2px solid rgb(90, 90, 90);
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+button:hover{
+    background-color: var(--main-inps-hov);
+    color: rgb(228, 228, 228);
+    transition: 0.3s ease;
+}
+input[type="text"]::placeholder{
+    color: rgb(117, 47, 47);
+}
+input[type="text"]{
+    position: relative;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: var(--main-inps);
+    color: var(--text-col);
+    width: 30%;
+    margin-top: 5px;
+    overflow: auto;
+    padding: 10px;
+}
+.title{
+    font-family: monospace;
+    text-align: center;
+    color: var(--text-col);
+    position: relative;
+    top: -40px;
+    background-color: rgb(62, 73, 68);
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+select{
+    position: relative;
+    /* height: 25px; */
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: var(--main-inps);
+    color: var(--text-col);
+    width: 40%;
+    font-weight: 800;
+    font-size: 90%;
+    padding: 5px;
+}
+textarea{
+    position: relative;
+    left: 25px;
+    min-width: 30%;
+    width: 70%;
+    min-height: 50px;
+    max-height: 100px; 
+    max-width: 90%;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: hsl(184, 18%, 53%);
+    color: var(--text-col);
+    padding: 10px;
+}
+.toggle{
+    height: 30px;
+    padding: 5px;
+    width: 70px;
+    font-size: .8rem;
+    font-weight: 700;
+    background-color: hsl(126, 18%, 53%);
+    border: 1px solid rgb(25, 31, 25);
+}
+.toggle:hover{
+    background-color: hsl(126, 26%, 62%);
+}
+
+.midiworld{
+    position: relative;
+    color: rgb(76, 255, 60);;
+}
+.mw{
+    transition: .1s ease;
+}
+.mw:hover{
+    font-size: 1.05em;
+    cursor: pointer;
+    color: rgb(63, 218, 49);
+    transition: .1s ease;
+    text-decoration: underline 2px hsl(115, 100%, 68%);
+}
+.MWimgCont{
+    display: inline-block;
+    width: 17.5px;
+    transform: translateY(15%);
+    filter: invert(100%) sepia(100%) saturate(3207%) hue-rotate(60deg) brightness(100%);
+ 
+}
+.sub-sec{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    background: var(--sub-sec);
+    position: relative;
+    width: 50%;
+    border: 2px solid rgb(24, 29, 25);
+    border-radius: 10px;
+    left: 25%;
+    padding: 20px;
+}
+.sub-sec p{
+    margin-top: 5px;
+}
+i{
+    color: rgb(46, 46, 46);
+    font-family: monospace;
+    font-size: 90%;
+}
+.ytV{
+    padding: .5em 1em;
+    position: absolute;
+    left: 5%;
+    top: 60px;
+    width: 15%;
+    font-size: 1vw;
+    cursor: pointer;
+    color: var(--text-col);
+    background-color: var(--YT);
+    border-radius: 3px;
+    border: 2px solid rgba(31, 0, 0, 0.7);
+    transition: 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform: rotateZ(-10deg);
+}
+.ytV:hover{
+    background-color: var(--YT-hov);
+    border-radius: 1px;
+    transition: 0.3s ease;
+    color: rgb(255, 219, 219);
+}
