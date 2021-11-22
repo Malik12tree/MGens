@@ -22,7 +22,7 @@
                 <img src="../../../assets/open.svg" style="width: 100%;filter: saturate(100%),brightness(100%) , hue-rotate(50%);">
             </div>
             <br>
-            <i>(I dont recommend converting)</i>
+            <!-- <i>(I dont recommend converting)</i> -->
         </div>
         <div class="midiworld">
             <a class="mw" onclick="window.open('https://www.midiworld.com', '_blank')">Browse Midi Files</a>
@@ -55,6 +55,8 @@
             <option value="block.note_block.snare">snare ( sand )</option>
             <option value="block.note_block.xylophone">xylophone ( bone block )</option></select></p>
             
+            <!-- <p>as Command block?</p> -->
+            <div id="dpS">
             <p>Initialize Function: <input type="text" value="init" id="initF"></p>
             <p>Tick Function: <input type="text" value="main" id="mainF"></p>
             <div class="lineSep"></div>
@@ -63,6 +65,7 @@
             <p></p>
             <div class="lineSep" style="top: 2.5px;"></div>
             <p>Note Limit Per Tick: <input type="number" value="20" id="noteLPF"></p>
+            </div>
         </div>
         <br>
         <button onclick="download()">Download</button>
