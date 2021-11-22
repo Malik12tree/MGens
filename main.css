@@ -24,9 +24,14 @@ sub-sections: hsl(50, 26%, 50%)
     text-align: center;
     color: #cefff3;
     position: relative;
+    font-family: carter;
     top: 10px;
     text-shadow: 2px 2px 2px #5d857b;
-    font-family: carter;
+    animation: start 1s ease;    
+}
+@keyframes start {
+    from {top: -40px; opacity: 0;}
+    to {top: 10px; opacity: 1;}
 }
 .main-sech sub{
     color: gray;
