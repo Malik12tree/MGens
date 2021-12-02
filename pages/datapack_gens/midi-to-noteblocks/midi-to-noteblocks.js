@@ -149,12 +149,15 @@ var mcinstruments2 = {
 var instruments = {"piano": "block.note_block.harp","chromatic percussion": "block.note_block.chime","organ": "block.note_block.pling","guitar": "block.note_block.guitar","bass": "block.note_block.basedrum","strings": "block.note_block.bass","ensemble": "block.note_block.harp","brass": "block.note_block.didgeridoo","reed": "block.note_block.didgeridoo","pipe": "block.note_block.flute","synth lead": "block.note_block.bit","synth pad": "block.note_block.cow_bell","synth effects": "block.note_block.harp","world": "block.note_block.banjo","percussive": "block.note_block.bell","sound effects": "block.note_block.chime","drums": "block.note_block.snare"}
 
 var ytBTN = document.getElementById("ytBTN");
-ytBTN.addEventListener("mouseenter", function () {
-    ytBTN.innerHTML = "Coming Soon.." // 11
-})
-ytBTN.addEventListener("mouseleave", function () {
-    ytBTN.innerHTML = "Youtube Video" //13
-})
+// ytBTN.addEventListener("mouseenter", function () {
+//     ytBTN.innerHTML = "Coming Soon.." // 11
+// })
+// ytBTN.addEventListener("mouseleave", function () {
+//     ytBTN.innerHTML = "Youtube Video" //13
+// })
+ytBTN.onclick = function() {
+    window.open('https://www.youtube.com/watch?v=LkbWjaBgj0U', "_blank")
+}
 
 
 function genCMD(n) {
